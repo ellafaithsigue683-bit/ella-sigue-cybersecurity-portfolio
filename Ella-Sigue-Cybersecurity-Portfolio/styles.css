@@ -494,3 +494,18 @@ body { font-size: 16px; line-height: 1.7; }
     font-size: 14px;
   }
 }
+
+
+/* Home hero alignment: reduce the oversized left inset while preserving responsive gutters. */
+.hero.section-shell {
+  padding-left: clamp(28px, 5.5vw, 96px);
+}
+@media (max-width: 950px) {
+  .hero.section-shell { padding-left: 5%; }
+}
+@media (max-width: 700px) {
+  .hero.section-shell { padding-left: 24px; }
+}
+@media (max-width: 390px) {
+  .hero.section-shell { padding-left: 18px; }
+}
