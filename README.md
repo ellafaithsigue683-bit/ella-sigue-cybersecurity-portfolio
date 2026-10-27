@@ -20,24 +20,24 @@ Keep website pages and their `assets/` folder inside `Ella-Sigue-Cybersecurity-P
 
 The legacy `operations.html` and `security-labs.html` routes remain as small redirects into the relevant categories on `projects.html`, so previously shared links continue to work without maintaining duplicate project content.
 
-## Hero video
+## Scroll-responsive character hero
 
-The homepage uses a silent 8-second looping cyber-network video:
-- Video: `Ella-Sigue-Cybersecurity-Portfolio/assets/videos/cyber-hero-loop.mp4`
-- Poster/fallback: `Ella-Sigue-Cybersecurity-Portfolio/assets/images/cyber-hero-poster.jpg`
+The homepage hero uses a lightweight two-pose WebP sprite based on a semi-realistic 3D-style female cybersecurity character. Scrolling down through the hero changes the character from a neutral pose to a gesture pose; scrolling back up returns to the neutral pose.
 
-The video is decorative, muted, and plays inline on supported desktop viewports. Small screens and users who prefer reduced motion receive the static branded poster. Desktop visitors have a pause/resume control.
+- Sprite: `Ella-Sigue-Cybersecurity-Portfolio/assets/images/hero-character-sprite.webp`
+- The hero does not autoplay a background video.
+- The scroll-driven pose change is disabled for small screens and users who prefer reduced motion.
 
 ## Accessibility and interactions
 
 - Improved type hierarchy and text contrast.
 - Keyboard-accessible zoom/lightbox for the Splunk dashboard.
 - Visible keyboard focus and accessible project controls.
-- Reduced-motion fallback for the homepage video.
+- Reduced-motion fallback for the scroll-responsive hero character.
 
 ## Assets
 
-The active `assets/` folder holds the certificate PDFs, certificate badge images, project cover images, reports, dashboard image, favicon, hero poster, and hero video. These are referenced by the website and should not be deleted without checking their links first.
+The active `assets/` folder holds certificate PDFs, badge images, project covers, reports, the Splunk dashboard image, favicon, and the hero character sprite. These are referenced by the website and should not be deleted without checking their links first.
 
 ## Deploy on Vercel
 
