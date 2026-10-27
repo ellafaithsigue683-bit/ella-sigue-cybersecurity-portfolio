@@ -217,3 +217,77 @@ html { scroll-padding-top: 90px; }
   .home-story { padding-top:65px; padding-bottom:68px; }
   .home-skill-copy,.home-path-card { padding:19px; }
 }
+
+
+/* Homepage hero video: branded visual background with readable text overlay */
+.hero {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--maroon);
+  background-image: linear-gradient(90deg, rgba(38,13,22,.88) 0%, rgba(52,15,30,.66) 46%, rgba(52,15,30,.42) 100%), url("assets/images/cyber-hero-poster.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: .82;
+  pointer-events: none;
+}
+.hero:before {
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(38,13,22,.86) 0%, rgba(52,15,30,.58) 48%, rgba(52,15,30,.36) 100%), linear-gradient(0deg, rgba(38,13,22,.28), transparent 50%);
+}
+.hero-grain {
+  z-index: 1;
+  opacity: .045;
+  pointer-events: none;
+}
+.hero-copy, .hero-art, .hero-bottom-rule {
+  position: relative;
+  z-index: 2;
+}
+.hero-bottom-rule {
+  position: absolute;
+}
+.hero-motion-toggle {
+  position: absolute;
+  top: 18px;
+  right: clamp(24px, 6vw, 100px);
+  z-index: 5;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid rgba(224,200,141,.8);
+  border-radius: 2px;
+  background: rgba(38,13,22,.94);
+  color: #fff8f5;
+  font: 600 12px/1.3 var(--sans);
+  cursor: pointer;
+}
+.hero-motion-toggle:hover { background: #3a1020; }
+.hero-motion-toggle:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 3px; }
+.hero-motion-toggle[hidden] { display: none !important; }
+@media (max-width: 700px) {
+  .hero-video { display: none; }
+  .hero {
+    background-image: linear-gradient(90deg, rgba(38,13,22,.86), rgba(52,15,30,.56)), url("assets/images/cyber-hero-poster.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .hero-motion-toggle { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none !important; }
+  .hero {
+    background-image: linear-gradient(90deg, rgba(38,13,22,.86), rgba(52,15,30,.56)), url("assets/images/cyber-hero-poster.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+}
+
