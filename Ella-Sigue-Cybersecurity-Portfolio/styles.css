@@ -716,6 +716,49 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
   .resume-cta-strip { padding: 18px; }
   .nav-link, .nav-contact { font-size: 13px; }
 }
+
+/* Resume page rhythm: consistent reading width, section headings, and scannable content. */
+.resume-section{width:min(920px,calc(100% - 40px));max-width:920px;margin-inline:auto;padding-top:clamp(30px,4vw,52px);padding-bottom:72px}
+.resume-page-heading{display:block;padding-bottom:24px}
+.resume-page-heading .eyebrow{margin-bottom:8px}
+.resume-page-heading h1{font-size:clamp(36px,4.6vw,52px)}
+.resume-actions{justify-content:flex-start;margin-top:20px;gap:12px}
+.resume-toc{display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;padding:14px 0;margin:0 0 22px;border-bottom:1px solid var(--line)}
+.resume-toc>span{color:#75676b;font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-right:3px}
+.resume-toc a{min-height:40px;display:inline-flex;align-items:center;color:var(--maroon);font-size:13px;font-weight:600;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px}
+.resume-toc a:hover{text-decoration-color:var(--gold)}
+.resume-summary-panel{margin:0 0 34px;padding:22px 24px}
+.resume-summary-label{margin:0 0 7px!important;color:#68575d!important;font:10px var(--mono)!important;letter-spacing:.12em;text-transform:uppercase}
+.resume-block{margin-top:42px}
+.resume-block-heading{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:3px;margin-bottom:18px;padding-bottom:12px}
+.resume-block-heading .eyebrow{margin:0 0 2px;line-height:1.4}
+.resume-block-heading h2,.resume-summary-panel h2{font-size:23px}
+.resume-project-grid,.resume-education-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0;padding:0;list-style:none}
+.resume-project-grid li,.resume-education-grid li{margin:0;padding:16px 18px;background:#fffdfa;border:1px solid var(--line);border-top:2px solid var(--gold);color:#51464a;font-size:14px;line-height:1.65}
+.resume-project-grid li strong,.resume-education-grid li strong{display:block;color:var(--maroon-dark);font-size:15px;line-height:1.4}
+.resume-project-grid li p{margin:7px 0 0}
+.resume-project-context{display:block;margin-top:3px;color:#716166;font:10px var(--mono);letter-spacing:.04em}
+.resume-transfer-note{margin:14px 0 0;padding:14px 16px;background:#efe5dd;border-left:3px solid var(--gold);font-size:14px;line-height:1.7;color:#51464a}
+.resume-entry{margin:0 0 13px;padding:18px 20px;background:#fffdfa;border:1px solid var(--line);border-left:3px solid var(--gold)}
+.resume-entry-heading{align-items:flex-start}
+.resume-entry ul{margin-top:10px}
+.resume-entry li{margin:6px 0}
+.resume-education-grid li span,.resume-additional-grid span{display:block;margin-top:5px;color:#5e5155;font-size:13px;line-height:1.6}
+.resume-additional-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.resume-additional-grid p{margin:0;padding:15px 18px;background:#fffdfa;border:1px solid var(--line);color:#51464a;font-size:14px}
+@media(max-width:700px){
+ .resume-section{width:calc(100% - 36px)}
+ .resume-page-heading h1{font-size:36px}
+ .resume-actions{margin-top:18px;gap:10px}
+ .resume-toc{gap:4px 14px;padding:10px 0;margin-bottom:18px}
+ .resume-toc>span{width:100%}
+ .resume-summary-panel{padding:18px;margin-bottom:28px}
+ .resume-block{margin-top:34px}
+ .resume-block-heading h2,.resume-summary-panel h2{font-size:21px}
+ .resume-project-grid,.resume-education-grid,.resume-additional-grid{grid-template-columns:1fr}
+ .resume-entry{padding:16px}
+}
+
 @media print {
   @page { size: A4; margin: 13mm 14mm; }
   html, body { width: auto !important; min-width: 0 !important; background: #fff !important; color: #1f1b1d !important; font-size: 10pt !important; line-height: 1.35 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -745,3 +788,12 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
 /* Give the featured Splunk dashboard the full card width above its case details. */
 .project-feature{display:flex;flex-direction:column}.project-feature .project-visual{min-height:0}.project-feature .splunk-visual img{max-height:none;width:100%;height:auto;object-fit:contain}
+
+@media print{
+ .resume-section{width:100%!important;max-width:none!important}
+ .resume-toc{display:none!important}
+ .resume-project-grid,.resume-education-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6pt!important}
+ .resume-project-grid li,.resume-education-grid li{padding:6pt!important;background:transparent!important}
+ .resume-entry{padding:6pt 8pt!important;background:transparent!important}
+ .resume-additional-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
