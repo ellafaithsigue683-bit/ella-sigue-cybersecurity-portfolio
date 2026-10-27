@@ -17,7 +17,8 @@ Keep website pages and their `assets/` folder inside `Ella-Sigue-Cybersecurity-P
 - `education.html` — BFA in Cinema and Cyber Threat Monitoring Level 1 training.
 - `about.html` — Career motivation, technical skills, and relevant professional experience.
 - `contact.html` — Email, LinkedIn, and recruiter contact actions.
-- `resume.html` — Accessible web résumé with a print / save-as-PDF action.
+- `resume.html` — Accessible web résumé with print styling and a browser print action.
+- `assets/reports/ella-faith-sigue-resume.pdf` — Original uploaded résumé PDF, linked as the primary download.
 
 The legacy `operations.html` and `security-labs.html` routes remain as small redirects into the relevant categories on `projects.html`, so previously shared links continue to work without maintaining duplicate project content.
 
@@ -33,7 +34,7 @@ The homepage uses an optimized static WebP image of the burgundy-and-gold cybers
 ## Accessibility and interactions
 
 - Improved type hierarchy and text contrast, including small metadata and secondary copy.
-- A résumé link is available in the global navigation and on key recruiter paths (Home, Projects, About, and Contact).
+- The global navigation and Home, Projects, About, and Contact pages provide both a direct download of the original résumé PDF and a link to the accessible web résumé.
 - Keyboard-accessible zoom/lightbox for the Splunk dashboard.
 - Visible keyboard focus and accessible project controls.
 - Static hero image, with no autoplay or motion requirements.
@@ -54,7 +55,7 @@ When editing the repository, update files inside that folder. Commit to `main`; 
 - Fortinet NSE 1, NSE 2, and NSE 3 were course requirements and were completed in October 2026.
 - Fortinet course-completion records are separate from the official NSE credential certificates.
 - Security exercises use supplied training datasets and contained labs. Simulated events are not presented as real incidents.
-- The résumé is available as a responsive web page with a browser print / save-as-PDF action. The page is based on the uploaded two-page résumé; its content is not re-presented as a downloadable copy of the original uploaded PDF.
+- The original uploaded two-page résumé is available as a direct PDF download, alongside a responsive, accessible web résumé with print styling.
 
 
 ## Design, accessibility, and sharing
