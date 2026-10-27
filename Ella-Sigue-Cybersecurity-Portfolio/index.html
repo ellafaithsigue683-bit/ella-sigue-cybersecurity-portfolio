@@ -65,12 +65,9 @@
    </div>
   </header>
   <main id="main">
+   <div class="hero-scroll-stage" id="hero-scroll-stage">
    <section class="hero section-shell" id="home">
-    <video aria-hidden="true" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/cyber-hero-poster.jpg">
-     <source src="assets/videos/cyber-hero-loop.mp4" type="video/mp4"/>
-    </video>
-    <button aria-pressed="false" class="hero-motion-toggle" hidden id="hero-motion-toggle" type="button">Pause background motion</button>
-    <div aria-hidden="true" class="hero-grain">
+<div aria-hidden="true" class="hero-grain">
     </div>
     <div class="hero-copy">
      <p class="eyebrow">
@@ -117,50 +114,14 @@
       LAB-BASED WORK &middot; EVIDENCE-LED REPORTING
      </div>
     </div>
-    <div aria-label="Decorative network security motif" class="hero-art">
-     <div class="orbit orbit-one">
+    <div aria-label="3D-style female cybersecurity character" class="hero-art hero-character-art">
+     <div class="hero-character" data-pose="0" id="hero-character" role="img" aria-label="A semi-realistic 3D-style portrait of Ella in a burgundy jacket and headphones. Her pose changes as you scroll.">
+      <div aria-hidden="true" class="hero-character-sprite"></div>
      </div>
-     <div class="orbit orbit-two">
-     </div>
-     <div class="orbit orbit-three">
-     </div>
-     <div class="core-shield">
-      <svg aria-label="Shield symbol" role="img" viewbox="0 0 120 140">
-       <path d="M60 6 105 23v39c0 30-18 53-45 69C33 115 15 92 15 62V23L60 6Z" fill="none" stroke="currentColor" stroke-width="2.4">
-       </path>
-       <path d="M60 22 89 33v29c0 21-12 38-29 49C43 100 31 83 31 62V33l29-11Z" fill="currentColor" opacity=".15">
-       </path>
-       <path d="m43 66 12 12 24-29" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
-       </path>
-      </svg>
-     </div>
-     <span class="orbit-tag tag-one">
-      LOGS / EVENTS
-     </span>
-     <span class="orbit-tag tag-two">
-      DETECT
-     </span>
-     <span class="orbit-tag tag-three">
-      ANALYZE
-     </span>
-     <span class="node node-a">
-     </span>
-     <span class="node node-b">
-     </span>
-     <span class="node node-c">
-     </span>
-     <span class="node node-d">
-     </span>
-     <div class="hero-code">
-      <span>
-       EVENT REVIEW
-      </span>
-      <b>
-       signal detected
-      </b>
-      <span>
-       assessment: in progress
-      </span>
+     <div aria-hidden="true" class="hero-character-status">
+      <span class="hero-character-status-dot"></span>
+      <span class="hero-character-status-label">SCROLL-RESPONSIVE PROFILE</span>
+      <strong>Observe · Analyze · Respond</strong>
      </div>
     </div>
     <div class="hero-bottom-rule">
@@ -172,6 +133,7 @@
      </span>
     </div>
    </section>
+   </div>
    <section aria-label="Portfolio overview" class="proof-strip">
     <div class="proof-item">
      <strong>
