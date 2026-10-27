@@ -138,22 +138,25 @@
     dashboardDialog.addEventListener('close', () => dashboardLastTrigger?.focus());
   }
 
-  const triageOptions = [...document.querySelectorAll('.triage-option')];
-  const triageFeedback = document.querySelector('#triage-feedback');
-  triageOptions.forEach((option) => option.addEventListener('click', () => {
-    const isCorrect = option.dataset.triageCorrect === 'true';
-    triageOptions.forEach((item) => {
-      const selected = item === option;
-      item.setAttribute('aria-pressed', String(selected));
-      item.classList.toggle('selected', selected);
+  const themeToggle = document.querySelector('#theme-toggle');
+  if (themeToggle) {
+    const themeLabel = themeToggle.querySelector('.theme-toggle-label');
+    const themeIcon = themeToggle.querySelector('.theme-toggle-icon');
+    const setTheme = (theme) => {
+      const isDark = theme === 'dark';
+      document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      if (themeLabel) themeLabel.textContent = isDark ? 'Light mode' : 'Dark mode';
+      if (themeIcon) themeIcon.textContent = isDark ? '☀' : '☾';
+    };
+    setTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+    themeToggle.addEventListener('click', () => {
+      const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      setTheme(theme);
+      try { localStorage.setItem('ella-sigue-theme', theme); } catch {}
     });
-    if (triageFeedback) {
-      triageFeedback.classList.toggle('is-correct', isCorrect);
-      triageFeedback.textContent = isCorrect
-        ? 'Good lead: the successful login follows repeated failures from one source. Validate account history, source ownership, and nearby activity; this excerpt alone does not prove compromise.'
-        : 'That conclusion goes beyond the evidence. The sequence warrants investigation, but a short log excerpt does not prove compromise.';
-    }
-  }));
+  }
 
   const printResumeButton = document.querySelector('#print-resume');
   printResumeButton?.addEventListener('click', () => window.print());

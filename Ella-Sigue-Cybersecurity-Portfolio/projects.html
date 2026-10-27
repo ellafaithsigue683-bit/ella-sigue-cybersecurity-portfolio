@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
  <head>
+  <script>try{if(localStorage.getItem('ella-sigue-theme')==='dark')document.documentElement.dataset.theme='dark'}catch{}</script>
+  
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <meta content="#641c32" name="theme-color"/>
@@ -82,7 +84,7 @@
        &nearrow;
       </span>
      </a>
-    </nav>
+    <button aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle" id="theme-toggle" type="button"><span aria-hidden="true" class="theme-toggle-icon">☾</span><span class="theme-toggle-label">Dark mode</span></button></nav>
    </div>
   </header>
   <main id="main">
@@ -136,24 +138,7 @@
     <p aria-live="polite" class="results-count" id="results-count">
      Showing 6 project entries
     </p>
-    <section aria-labelledby="quick-triage-title" class="quick-triage">
-     <div class="quick-triage-copy">
-      <p class="eyebrow dark-eyebrow">QUICK TRIAGE / SYNTHETIC DATA</p>
-      <h2 id="quick-triage-title">Spot the event worth a closer look.</h2>
-      <p>This fictional sequence is for practice. Which observation is the strongest lead to validate?</p>
-     </div>
-     <ol aria-label="Synthetic authentication events" class="triage-event-list">
-      <li><time>09:14:02</time><code>auth.failed user=analyst src=203.0.113.44</code></li>
-      <li><time>09:14:08</time><code>auth.failed user=analyst src=203.0.113.44</code></li>
-      <li><time>09:14:19</time><code>auth.failed user=analyst src=203.0.113.44</code></li>
-      <li><time>09:14:31</time><code>auth.success user=analyst src=203.0.113.44</code></li>
-     </ol>
-     <div aria-label="Choose the strongest triage lead" class="triage-choices" role="group">
-      <button class="triage-option" aria-pressed="false" data-triage-correct="true" type="button">A successful login after repeated failures from the same source.</button>
-      <button class="triage-option" aria-pressed="false" data-triage-correct="false" type="button">The log proves the account was compromised.</button>
-     </div>
-     <p aria-live="polite" class="triage-feedback" id="triage-feedback">Choose the strongest evidence-based response.</p>
-    </section>
+    
     <div class="project-category-block" id="security-operations">
      <div class="project-category-heading">
       <h2>

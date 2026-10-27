@@ -36,8 +36,8 @@ The homepage uses an optimized static WebP image of the burgundy-and-gold cybers
 - Improved type hierarchy and text contrast, including small metadata and secondary copy.
 - The global navigation links to the Resume page. Contact and Resume provide the direct PDF download; Home, Projects, and About keep their focus on portfolio content.
 - Keyboard-accessible zoom/lightbox for the Splunk dashboard.
-- A self-contained triage challenge uses synthetic authentication events and reinforces evidence-based analysis.
 - Visible keyboard focus and accessible project controls.
+- A persistent light/dark mode toggle across all pages, with light mode as the default.
 - Static hero image, with no autoplay or motion requirements.
 
 ## Assets
@@ -71,4 +71,4 @@ When editing the repository, update files inside that folder. Commit to `main`; 
 
 The GitHub Actions workflow runs a dependency-free Node.js validator on pushes to `main` and pull requests. It checks required pages, one H1 per page, matching primary navigation, local links and anchors, and referenced assets including PDFs.
 
-The interactive triage challenge on the Projects page uses only fictional events. It runs in the browser without an account, data upload, or external service.
+The light/dark mode toggle is available in the primary navigation on every page and remembers the visitor’s choice in local browser storage. Light mode is the default.
