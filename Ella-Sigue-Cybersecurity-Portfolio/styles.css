@@ -841,3 +841,34 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 :root[data-theme="dark"] h1 em,:root[data-theme="dark"] h2 em,:root[data-theme="dark"] .dark-eyebrow,:root[data-theme="dark"] .section-heading h2 em,:root[data-theme="dark"] .category-label,:root[data-theme="dark"] .metric-row strong,:root[data-theme="dark"] .case-toggle,:root[data-theme="dark"] .case-detail h4,:root[data-theme="dark"] .no-results>span,:root[data-theme="dark"] .no-results h3,:root[data-theme="dark"] .about-monogram,:root[data-theme="dark"] .about-main h3,:root[data-theme="dark"] .method-inner .eyebrow,:root[data-theme="dark"] .method-inner blockquote,:root[data-theme="dark"] .featured-item span,:root[data-theme="dark"] .education-footnote strong,:root[data-theme="dark"] .transfer-card>span,:root[data-theme="dark"] .education-subhead,:root[data-theme="dark"] .resume-skill-grid h3,:root[data-theme="dark"] .resume-toc a,:root[data-theme="dark"] .resume-contact-line a{color:#e0c88d}
 :root[data-theme="dark"] input::placeholder,:root[data-theme="dark"] textarea::placeholder{color:#c7bbc1;opacity:1}
 }
+
+/* Dark theme color contract: readable text on the surfaces used by every page. */
+@media screen{
+:root[data-theme="dark"]{
+  --surface:#262126;
+  --surface-raised:#302a2f;
+  --text-primary:#f3edf0;
+  --text-secondary:#d4cbd0;
+  --text-accent:#e0c88d;
+  --focus-outline:#f0d99e;
+}
+:root[data-theme="dark"] .featured-work{background:var(--paper)!important;border-color:var(--line)!important}
+:root[data-theme="dark"] .featured-item{background:var(--surface-raised)!important;color:var(--text-primary)!important;border-color:var(--line)!important}
+:root[data-theme="dark"] .featured-item strong{color:var(--text-primary)!important}
+:root[data-theme="dark"] .featured-heading p:last-child,:root[data-theme="dark"] .featured-item small{color:var(--text-secondary)!important}
+:root[data-theme="dark"] .resume-summary-panel{background:var(--surface-raised)!important;color:var(--text-primary)!important}
+:root[data-theme="dark"] .resume-summary-panel h2,:root[data-theme="dark"] .resume-block-heading h2{color:var(--text-primary)!important}
+:root[data-theme="dark"] .resume-summary-panel p,:root[data-theme="dark"] .resume-section p,:root[data-theme="dark"] .resume-section li{color:var(--text-secondary)!important}
+:root[data-theme="dark"] .resume-project-grid li,:root[data-theme="dark"] .resume-education-grid li,:root[data-theme="dark"] .resume-entry,:root[data-theme="dark"] .resume-skill-grid>div,:root[data-theme="dark"] .resume-additional-grid p{background:var(--surface)!important;color:var(--text-secondary)!important;border-color:var(--line)!important}
+:root[data-theme="dark"] .resume-project-grid li strong,:root[data-theme="dark"] .resume-education-grid li strong,:root[data-theme="dark"] .resume-entry-heading h3,:root[data-theme="dark"] .resume-skill-grid h3{color:var(--text-accent)!important}
+:root[data-theme="dark"] .resume-project-context,:root[data-theme="dark"] .resume-entry li,:root[data-theme="dark"] .resume-entry-meta,:root[data-theme="dark"] .resume-toc>span,:root[data-theme="dark"] .resume-print-note,:root[data-theme="dark"] .resume-contact-line{color:var(--text-secondary)!important}
+:root[data-theme="dark"] .resume-transfer-note,:root[data-theme="dark"] .learning-note,:root[data-theme="dark"] .caution-note{background:var(--surface-raised)!important;color:var(--text-secondary)!important;border-color:var(--gold)!important}
+:root[data-theme="dark"] .resume-transfer-note p,:root[data-theme="dark"] .learning-note p,:root[data-theme="dark"] .caution-note p{color:var(--text-secondary)!important}
+:root[data-theme="dark"] .skill-panel-heading span:first-child{color:var(--text-accent)!important}
+:root[data-theme="dark"] .skill-pills span,:root[data-theme="dark"] .tag-row span{background:var(--surface-raised)!important;color:var(--text-secondary)!important}
+:root[data-theme="dark"] .about-main h3,:root[data-theme="dark"] .about-skill-card h3,:root[data-theme="dark"] .education-subhead,:root[data-theme="dark"] .transfer-card>span{color:var(--text-accent)!important}
+:root[data-theme="dark"] .filter-chip{color:var(--text-secondary);border-color:var(--line)}
+:root[data-theme="dark"] .filter-chip.selected{background:#7b2943;color:#fff}
+:root[data-theme="dark"] input::placeholder,:root[data-theme="dark"] textarea::placeholder{color:var(--text-secondary);opacity:1}
+:root[data-theme="dark"] :focus-visible{outline-color:var(--focus-outline)}
+}
