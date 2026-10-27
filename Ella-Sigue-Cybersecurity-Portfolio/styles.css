@@ -437,3 +437,60 @@ body { font-size: 16px; line-height: 1.7; }
   }
 }
 
+
+/* Education page layout refinement: balanced two-column intro, no repeated copy */
+.education-section .section-heading {
+  align-items: center;
+  gap: clamp(36px, 6vw, 88px);
+  margin-bottom: 38px;
+}
+.education-section .section-heading > div {
+  flex: 1 1 54%;
+  min-width: 0;
+}
+.education-section .section-heading .section-intro {
+  flex: 0 1 470px;
+  width: auto;
+  max-width: 470px;
+  padding-left: 24px;
+  border-left: 2px solid var(--gold);
+  color: #51464a;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.education-card .education-copy {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #51464a;
+}
+.education-card .education-list {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #51464a;
+}
+.education-card .education-list li {
+  margin: 8px 0;
+}
+@media (max-width: 850px) {
+  .education-section .section-heading {
+    display: block;
+    margin-bottom: 30px;
+  }
+  .education-section .section-heading .section-intro {
+    max-width: 680px;
+    margin-top: 24px;
+    padding-left: 18px;
+  }
+}
+@media (max-width: 700px) {
+  .education-section .section-heading .section-intro {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .education-card .education-copy,
+  .education-card .education-list {
+    font-size: 14px;
+  }
+}
