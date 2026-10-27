@@ -18,7 +18,7 @@
       const range = Math.max(1, heroStage.offsetHeight - heroSection.offsetHeight);
       const distance = Math.max(0, Math.min(range, window.scrollY - stageStart));
       const progress = distance / range;
-      const pose = Math.min(3, Math.floor(progress * 4));
+      const pose = progress >= 0.5 ? 1 : 0;
       heroCharacter.dataset.pose = String(pose);
     };
 
