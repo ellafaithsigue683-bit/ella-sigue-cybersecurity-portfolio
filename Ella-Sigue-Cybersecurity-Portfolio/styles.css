@@ -919,3 +919,10 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
 /* Keep the Contact action aligned with the 44px theme control in either mode. */
 .nav-contact{min-height:44px;height:44px;padding:9px 13px;line-height:1;box-sizing:border-box;align-items:center;justify-content:center}
+
+/* Resume dark surfaces: keep the page canvas on the site paper tone, with cards slightly raised. */
+@media screen{
+:root[data-theme="dark"] .resume-section{background:var(--paper)!important}
+:root[data-theme="dark"] .resume-education-grid li span,
+:root[data-theme="dark"] .resume-additional-grid span{color:var(--text-secondary)!important}
+}
