@@ -524,3 +524,18 @@ body { font-size: 16px; line-height: 1.7; }
 @media (max-width: 390px) {
   .hero.section-shell { padding-left: 22px; }
 }
+
+
+/* Hero spacing refinement: move the text block farther right with a generous left gutter. */
+.hero.section-shell {
+  padding-left: clamp(64px, 11vw, 190px);
+}
+@media (max-width: 950px) {
+  .hero.section-shell { padding-left: 8.5%; }
+}
+@media (max-width: 700px) {
+  .hero.section-shell { padding-left: 32px; }
+}
+@media (max-width: 390px) {
+  .hero.section-shell { padding-left: 24px; }
+}
