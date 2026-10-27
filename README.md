@@ -48,7 +48,7 @@ When editing the repository, update files inside that folder. Commit to `main`; 
 ## Accuracy notes
 
 - Cyber Threat Monitoring Level 1 was completed through GFG Assessment and Training Center Corp.
-- Fortinet NSE 1, NSE 2, and NSE 3 were course requirements and were completed on 26 October 2026.
+- Fortinet NSE 1, NSE 2, and NSE 3 were course requirements and were completed in October 2026.
 - Fortinet course-completion records are separate from the official NSE credential certificates.
 - Security exercises use supplied training datasets and contained labs. Simulated events are not presented as real incidents.
 - The résumé PDF is not published in the website; professional experience is summarized for relevance to the work shown.
