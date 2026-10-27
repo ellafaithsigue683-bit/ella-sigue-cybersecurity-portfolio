@@ -20,27 +20,25 @@ Keep website pages and their `assets/` folder inside `Ella-Sigue-Cybersecurity-P
 
 The legacy `operations.html` and `security-labs.html` routes remain as small redirects into the relevant categories on `projects.html`, so previously shared links continue to work without maintaining duplicate project content.
 
-## Full HD cybersecurity hero background
+## Static cybersecurity hero background
 
-The homepage uses a silent, six-second Full HD cinematic video loop with a matching static poster. Burgundy-and-gold command-center artwork sits behind the hero copy with a dark left-side gradient for readability.
+The homepage uses an optimized static WebP image of the burgundy-and-gold cybersecurity operations scene, with a dark left-side gradient to keep the headline readable. No video files or autoplay are needed for the hero.
 
-- Video: `Ella-Sigue-Cybersecurity-Portfolio/assets/videos/cybersecurity-hero-loop.mp4`
-- Poster fallback: `Ella-Sigue-Cybersecurity-Portfolio/assets/images/cybersecurity-hero-poster.jpg`
-- WebP poster fallback: `Ella-Sigue-Cybersecurity-Portfolio/assets/images/cybersecurity-hero-poster.webp`
+- Homepage background: `Ella-Sigue-Cybersecurity-Portfolio/assets/images/cybersecurity-hero-poster.webp`
+- Alternate poster: `Ella-Sigue-Cybersecurity-Portfolio/assets/images/cybersecurity-hero-poster.jpg`
 - Full-resolution illustration: `Ella-Sigue-Cybersecurity-Portfolio/assets/images/cybersecurity-hero-illustration-1920x1080.png`
-
-The video is muted, loops, and has a pause/resume control on supported desktop viewports. Small screens and visitors who prefer reduced motion receive a static poster.
+- Original image source: `Ella-Sigue-Cybersecurity-Portfolio/assets/images/cybersecurity-hero-source.png`
 
 ## Accessibility and interactions
 
 - Improved type hierarchy and text contrast.
 - Keyboard-accessible zoom/lightbox for the Splunk dashboard.
 - Visible keyboard focus and accessible project controls.
-- Reduced-motion fallback for the scroll-responsive hero character.
+- Static hero image, with no autoplay or motion requirements.
 
 ## Assets
 
-The active `assets/` folder holds certificate PDFs, badge images, project covers, reports, the Splunk dashboard image, favicon, and the hero character sprite. These are referenced by the website and should not be deleted without checking their links first.
+The active `assets/` folder holds certificate PDFs, badge images, project covers, reports, the Splunk dashboard image, favicon, and the cybersecurity hero image. These are referenced by the website and should not be deleted without checking their links first.
 
 ## Deploy on Vercel
 

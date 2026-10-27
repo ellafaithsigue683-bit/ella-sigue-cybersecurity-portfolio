@@ -214,7 +214,7 @@ html { scroll-padding-top: 90px; }
 }
 
 
-/* Full-bleed Full HD cybersecurity video background with a darker text-safe left side. */
+/* Full-bleed static hero image with a readable left-side overlay. */
 .hero.section-shell {
   width: 100%;
   max-width: none;
@@ -225,32 +225,22 @@ html { scroll-padding-top: 90px; }
   min-height: max(680px, calc(100svh - 78px));
   padding: 70px clamp(32px, 6.5vw, 110px) 92px clamp(80px, 12vw, 220px);
   background-color: var(--maroon-dark);
-  background-image: url("assets/images/cybersecurity-hero-poster.jpg");
+  background-image:
+    linear-gradient(90deg, rgba(25,5,12,.91) 0%, rgba(35,8,17,.77) 30%, rgba(35,8,17,.36) 56%, rgba(35,8,17,.12) 100%),
+    url("assets/images/cybersecurity-hero-poster.webp");
   background-size: cover;
   background-position: center center;
-}
-.hero-video {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  pointer-events: none;
 }
 .hero:before {
   content: "";
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
   pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(25,5,12,.91) 0%, rgba(35,8,17,.77) 30%, rgba(35,8,17,.36) 56%, rgba(35,8,17,.12) 100%),
-    linear-gradient(0deg, rgba(25,5,12,.43) 0%, transparent 42%);
+  background: linear-gradient(0deg, rgba(25,5,12,.36), transparent 44%);
 }
 .hero-grain {
-  z-index: 0;
+  z-index: 1;
   opacity: .045;
   pointer-events: none;
 }
@@ -266,24 +256,6 @@ html { scroll-padding-top: 90px; }
   left: clamp(80px, 12vw, 220px);
   right: clamp(32px, 6.5vw, 110px);
 }
-.hero-motion-toggle {
-  position: absolute;
-  z-index: 5;
-  top: 18px;
-  right: clamp(24px, 6.5vw, 110px);
-  min-height: 44px;
-  padding: 10px 13px;
-  border: 1px solid rgba(224,200,141,.85);
-  border-radius: 2px;
-  background: rgba(38,13,22,.94);
-  color: #fff8f5;
-  font: 600 12px/1.35 var(--sans);
-  cursor: pointer;
-}
-.hero-motion-toggle:hover { background: #3a1020; }
-.hero-motion-toggle:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 3px; }
-.hero-motion-toggle[hidden] { display: none !important; }
-
 /* Accessible typographic scale, contrast refinements, and dashboard lightbox */
 :root {
   --ink: #30252a;
@@ -498,7 +470,7 @@ body { font-size: 16px; line-height: 1.7; }
 
 
 
-/* Responsive hero media: use a poster on narrow screens and when reduced motion is preferred. */
+/* Responsive crop for the static hero image; no video or autoplay required. */
 @media (max-width: 1100px) {
   .hero.section-shell {
     padding-left: 8.5%;
@@ -512,16 +484,13 @@ body { font-size: 16px; line-height: 1.7; }
     min-height: auto;
     grid-template-columns: minmax(0, 1fr);
     padding: 50px 24px 65px;
-    background-image: url("assets/images/cybersecurity-hero-poster.webp");
+    background-image:
+      linear-gradient(90deg, rgba(25,5,12,.92) 0%, rgba(35,8,17,.78) 53%, rgba(35,8,17,.45) 100%),
+      url("assets/images/cybersecurity-hero-poster.webp");
     background-size: cover;
     background-position: center center;
   }
-  .hero.section-shell:before {
-    background:
-      linear-gradient(90deg, rgba(25,5,12,.93) 0%, rgba(35,8,17,.79) 52%, rgba(35,8,17,.47) 100%),
-      linear-gradient(0deg, rgba(25,5,12,.43) 0%, transparent 42%);
-  }
-  .hero-video, .hero-motion-toggle { display: none !important; }
+  .hero:before { background: linear-gradient(0deg, rgba(25,5,12,.36), transparent 44%); }
   .hero-lede { font-size: 15px; }
   .hero-footnote { margin-top: 31px; }
   .hero-bottom-rule { left: 24px; right: 24px; }
@@ -529,12 +498,4 @@ body { font-size: 16px; line-height: 1.7; }
 @media (max-width: 390px) {
   .hero.section-shell { padding-inline: 18px; }
   .hero-bottom-rule { left: 18px; right: 18px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-video, .hero-motion-toggle { display: none !important; }
-  .hero.section-shell {
-    background-image: url("assets/images/cybersecurity-hero-poster.jpg");
-    background-size: cover;
-    background-position: center center;
-  }
 }
