@@ -146,6 +146,53 @@
     }
   });
 
+  // Keyboard-accessible full-size viewer for the Splunk dashboard evidence.
+  const dashboardImages = document.querySelectorAll('img[src*="splunk-botsv2-security-overview.png"]');
+  if (dashboardImages.length && typeof HTMLDialogElement !== 'undefined') {
+    const dashboardDialog = document.createElement('dialog');
+    dashboardDialog.className = 'dashboard-lightbox';
+    dashboardDialog.setAttribute('aria-label', 'Enlarged Splunk BOTS v2 dashboard');
+    dashboardDialog.innerHTML = `
+      <div class="dashboard-lightbox-panel">
+        <button class="dashboard-lightbox-close" type="button" aria-label="Close enlarged dashboard">
+          <span>Close</span><span aria-hidden="true">&times;</span>
+        </button>
+        <img alt="" />
+      </div>`;
+    document.body.appendChild(dashboardDialog);
+    const dashboardDialogImage = dashboardDialog.querySelector('img');
+    const dashboardCloseButton = dashboardDialog.querySelector('.dashboard-lightbox-close');
+    let dashboardLastTrigger = null;
+
+    const openDashboardImage = (image) => {
+      dashboardLastTrigger = image;
+      dashboardDialogImage.src = image.currentSrc || image.src;
+      dashboardDialogImage.alt = image.alt || 'Full-size Splunk BOTS v2 dashboard screenshot';
+      dashboardDialog.showModal();
+      dashboardCloseButton.focus();
+    };
+
+    dashboardImages.forEach((image) => {
+      image.tabIndex = 0;
+      image.setAttribute('role', 'button');
+      image.setAttribute('aria-haspopup', 'dialog');
+      image.setAttribute('aria-label', 'Enlarge Splunk BOTS v2 dashboard image');
+      image.addEventListener('click', () => openDashboardImage(image));
+      image.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openDashboardImage(image);
+        }
+      });
+    });
+
+    dashboardCloseButton.addEventListener('click', () => dashboardDialog.close());
+    dashboardDialog.addEventListener('click', (event) => {
+      if (event.target === dashboardDialog) dashboardDialog.close();
+    });
+    dashboardDialog.addEventListener('close', () => dashboardLastTrigger?.focus());
+  }
+
   const year = document.querySelector('#year');
   if (year) year.textContent = String(new Date().getFullYear());
   filterCards();
