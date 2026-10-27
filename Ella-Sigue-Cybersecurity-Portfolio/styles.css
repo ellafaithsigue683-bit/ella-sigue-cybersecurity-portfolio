@@ -181,7 +181,7 @@ body { font-size: 16px; line-height: 1.7; }
 .skill-pills span { font-size: 12px; color: #4f4348; }
 .search-box input { font-size: 14px; }
 .search-box input::placeholder { color: #62565a; }
-.filter-chip { font-size: 12px; color: #62565a; }
+.filter-chip { font-size: 12px; color: #62565a; min-height: 44px; padding: 10px 12px; }
 .filter-chip span { font-size: 11px; }
 .results-count { font-size: 12px; color: #62565a; }
 .project-category-heading h3 { font-size: 21px; }
