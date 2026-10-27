@@ -1,24 +1,26 @@
 # Ella Sigue — Cybersecurity Portfolio
 
-A responsive, single-page cybersecurity portfolio built with static HTML, CSS, and JavaScript.
+A static, multi-page portfolio built with HTML, CSS, and vanilla JavaScript for deployment on Vercel from GitHub.
 
-## Sections
-- Home and featured project links
-- Security Operations: Splunk, Wireshark, incident-response exercises
-- Security Labs: OWASP Juice Shop, GoPhish/MailHog, Cowrie, and an explicitly marked Nmap learning focus
-- Credentials: official Fortinet NSE 1–3 certification badge artwork linked to the matching certificate PDFs
-- Education: BFA Cinema (Cum Laude) and a separately identified cybersecurity training pathway
-- About: tools, learning approach, and selected transferable work experience
-- Contact: email and LinkedIn
+## Pages
+- `index.html` — Home and featured projects
+- `projects.html` — Searchable project gallery and expandable case studies
+- `operations.html` — Incident reporting, Splunk SIEM exercises, and Wireshark analysis
+- `security-labs.html` — OWASP Juice Shop, GoPhish/MailHog, Cowrie, and Nmap fundamentals
+- `certifications.html` — Fortinet NSE 1–3 certification badges plus separate course-completion records
+- `education.html` — BFA in Cinema and Cyber Threat Monitoring Level 1 training
+- `about.html` — Career motivation, technical skills, and relevant transferable experience
+- `contact.html` — Email and LinkedIn
 
-## Credentials policy
-The NSE 1–3 credential PDFs are presented separately from the three course-completion records. The exact credential/course titles from the supplied documents are preserved. Badge images stay visible on touch devices; hover/focus adds a subtle reveal and is not required to access the certificate.
+## Local preview
+Open `index.html` in a browser. All pages share `styles.css`, `script.js`, and the `assets/` folder.
 
-## Run locally
-Open `index.html` in a browser, or serve this folder with any static file server. No package installation or build command is required.
+## Deploy on Vercel
+The site uses plain static files and no build command. Keep the site files at the configured Vercel root directory. If the existing Vercel project uses `Ella-Sigue-Cybersecurity-Portfolio` as its Git root directory, upload the contents of this package into that exact folder in the GitHub repository (not a new nested folder). Commit the changes to `main`; Vercel will redeploy from the connected repository.
 
-## Deploy to Vercel
-The repository's current Vercel project uses `Ella-Sigue-Cybersecurity-Portfolio` as its Root Directory. Upload the contents of this folder into that directory in GitHub, preserving the `assets` folder. No build command is needed; Output Directory can be `.` if requested.
-
-## Reporting and scope
-Reports describe training exercises and lab evidence. They do not claim that simulated activity or historical training-dataset patterns represent compromise of a real organization. The resume itself is not included in this website.
+## Accuracy notes
+- Cyber Threat Monitoring Level 1 was completed through GFG Assessment and Training Center Corp.
+- The user reports the course instructor asked learners to pass Fortinet NSE 1, NSE 2, and NSE 3; those credentials are listed with their official badge artwork and certificate PDFs.
+- Course-completion records are shown separately from the official NSE credential certificates.
+- Security exercises use supplied training datasets and contained labs. The site does not claim simulated events were real incidents.
+- The resume PDF is not included in the site package. Selected transferable experience is summarized only.

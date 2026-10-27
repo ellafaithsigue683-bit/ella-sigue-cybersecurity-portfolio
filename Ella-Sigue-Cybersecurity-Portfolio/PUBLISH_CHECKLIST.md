@@ -1,10 +1,13 @@
-# Publishing checklist
+# Publish checklist — multi-page portfolio
 
-1. Open the GitHub repository and enter the existing `Ella-Sigue-Cybersecurity-Portfolio` directory.
-2. Upload/replace `index.html`, `styles.css`, `script.js`, `README.md`, and `vercel.json` from this folder.
-3. Upload the updated `assets/images` and `assets/certificates` folders while preserving the existing report PDFs under `assets/reports`.
-4. Commit the changes to `main`.
-5. Vercel should automatically redeploy the commit from the configured root directory.
-6. Verify all sections, mobile navigation, search/filters, certificate badge links, course-completion links, report links, image paths, email, and LinkedIn.
+- [ ] Extract this package on your computer.
+- [ ] In GitHub, open `Ella-Sigue-Cybersecurity-Portfolio` inside `ellafaithsigue683-bit/ella-sigue-cybersecurity-portfolio`.
+- [ ] Upload/replace the package contents inside that existing folder. Do not upload the ZIP as a nested folder.
+- [ ] Keep all eight `.html` pages, `styles.css`, `script.js`, `vercel.json`, and the whole `assets/` directory together.
+- [ ] Commit the changes to `main`.
+- [ ] In Vercel, check that the latest deployment completes successfully.
+- [ ] Test navigation among Home, Projects, Operations, Security Labs, Credentials, Education, About, and Contact.
+- [ ] Test project search, category filters, case-study expanders, badge links, PDF downloads, email, and LinkedIn.
+- [ ] Review every publicly accessible report for information you don't intend to disclose.
 
-Important: do not create another nested `Ella-Sigue-Cybersecurity-Portfolio/Ella-Sigue-Cybersecurity-Portfolio` folder. Upload the contents of this folder into the existing portfolio folder.
+No resume PDF is included in the site.

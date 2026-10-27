@@ -25,7 +25,7 @@
         if (card.closest('#labs-grid')) labsShown += 1;
       }
     });
-    if (resultsCount) resultsCount.textContent = `Showing ${shown} of ${cards.length} project entries`;
+    if (resultsCount) resultsCount.textContent = `Showing ${shown} ${shown === 1 ? 'entry' : 'entries'}`;
     if (noResults) noResults.hidden = shown !== 0;
     if (operationsGrid) operationsGrid.hidden = operationsShown === 0;
     if (labsGrid) labsGrid.hidden = labsShown === 0;
@@ -73,7 +73,7 @@
     const email = copyButton.dataset.email;
     try {
       await navigator.clipboard.writeText(email);
-      copyStatus.textContent = 'Email address copied.';
+      if (copyStatus) copyStatus.textContent = 'Email address copied.';
     } catch {
       const temp = document.createElement('textarea');
       temp.value = email;
@@ -84,7 +84,7 @@
       temp.select();
       const copied = document.execCommand('copy');
       temp.remove();
-      copyStatus.textContent = copied ? 'Email address copied.' : `Email: ${email}`;
+      if (copyStatus) copyStatus.textContent = copied ? 'Email address copied.' : `Email: ${email}`;
     }
   });
 
