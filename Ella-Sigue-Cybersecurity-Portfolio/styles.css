@@ -872,3 +872,13 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 :root[data-theme="dark"] input::placeholder,:root[data-theme="dark"] textarea::placeholder{color:var(--text-secondary);opacity:1}
 :root[data-theme="dark"] :focus-visible{outline-color:var(--focus-outline)}
 }
+
+@media screen{
+:root[data-theme="dark"] .search-box{background:var(--surface)!important;color:var(--text-primary);border-color:var(--line)}
+:root[data-theme="dark"] .search-box input{color:var(--text-primary)!important}
+:root[data-theme="dark"] .button-light{background:#faf7f2!important;color:#260d16!important}
+:root[data-theme="dark"] .button-light:hover{background:#fff!important;color:#260d16!important}
+:root[data-theme="dark"] .nav-contact{background:var(--gold)!important;color:#260d16!important}
+:root[data-theme="dark"] .coursework-list a{background:#f8f5f1!important;color:#260d16!important}
+:root[data-theme="dark"] .coursework-list a:hover{background:#fff!important;color:#260d16!important}
+}
