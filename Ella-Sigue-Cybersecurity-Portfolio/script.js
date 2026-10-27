@@ -1,25 +1,34 @@
 (() => {
   const searchInput = document.querySelector('#project-search');
   const chips = [...document.querySelectorAll('.filter-chip')];
-  const cards = [...document.querySelectorAll('.project-card')];
+  const cards = [...document.querySelectorAll('.project-card[data-category]')];
   const resultsCount = document.querySelector('#results-count');
   const noResults = document.querySelector('#no-results');
-  const grid = document.querySelector('#project-grid');
+  const operationsGrid = document.querySelector('#operations-grid');
+  const labsGrid = document.querySelector('#labs-grid');
   let activeFilter = 'all';
 
   function filterCards() {
     const query = (searchInput?.value || '').trim().toLowerCase();
     let shown = 0;
+    let operationsShown = 0;
+    let labsShown = 0;
     cards.forEach((card) => {
       const categoryMatch = activeFilter === 'all' || card.dataset.category === activeFilter;
-      const searchMatch = !query || `${card.dataset.search || ''} ${card.innerText || ''}`.toLowerCase().includes(query);
+      const searchText = `${card.dataset.search || ''} ${card.innerText || ''}`.toLowerCase();
+      const searchMatch = !query || searchText.includes(query);
       const visible = categoryMatch && searchMatch;
       card.hidden = !visible;
-      if (visible) shown += 1;
+      if (visible) {
+        shown += 1;
+        if (card.closest('#operations-grid')) operationsShown += 1;
+        if (card.closest('#labs-grid')) labsShown += 1;
+      }
     });
-    resultsCount.textContent = `Showing ${shown} of ${cards.length} projects`;
-    noResults.hidden = shown !== 0;
-    grid.hidden = shown === 0;
+    if (resultsCount) resultsCount.textContent = `Showing ${shown} of ${cards.length} project entries`;
+    if (noResults) noResults.hidden = shown !== 0;
+    if (operationsGrid) operationsGrid.hidden = operationsShown === 0;
+    if (labsGrid) labsGrid.hidden = labsShown === 0;
   }
 
   chips.forEach((chip) => chip.addEventListener('click', () => {
@@ -39,8 +48,10 @@
     const willOpen = detail.hidden;
     detail.hidden = !willOpen;
     button.setAttribute('aria-expanded', String(willOpen));
-    button.querySelector('span').textContent = willOpen ? '−' : '＋';
-    button.firstChild.textContent = willOpen ? 'Close case study ' : 'Read case study ';
+    const label = button.querySelector('.toggle-symbol');
+    if (label) label.textContent = willOpen ? '−' : '＋';
+    const textNode = [...button.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+    if (textNode) textNode.textContent = willOpen ? ' Close case study ' : ' Read case study ';
   }));
 
   const menuToggle = document.querySelector('#menu-toggle');

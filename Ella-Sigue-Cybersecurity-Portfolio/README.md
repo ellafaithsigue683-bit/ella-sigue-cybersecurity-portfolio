@@ -1,38 +1,24 @@
 # Ella Sigue — Cybersecurity Portfolio
 
-A responsive, single-page static website for GitHub + Vercel. It uses plain HTML, CSS, and JavaScript, so there is no package installation or build command.
+A responsive, single-page cybersecurity portfolio built with static HTML, CSS, and JavaScript.
 
-## What's included
+## Sections
+- Home and featured project links
+- Security Operations: Splunk, Wireshark, incident-response exercises
+- Security Labs: OWASP Juice Shop, GoPhish/MailHog, Cowrie, and an explicitly marked Nmap learning focus
+- Credentials: official Fortinet NSE 1–3 certification badge artwork linked to the matching certificate PDFs
+- Education: BFA Cinema (Cum Laude) and a separately identified cybersecurity training pathway
+- About: tools, learning approach, and selected transferable work experience
+- Contact: email and LinkedIn
 
-- `index.html` — all site sections and six expandable case studies
-- `styles.css` — maroon / warm white / muted gold styling and responsive layouts
-- `script.js` — working project search, category filters, case-study expanders, mobile navigation, and copy-email control
-- `assets/reports/` — six source reports / worksheets as PDFs
-- `assets/certificates/` — three original Fortinet course completion certificate PDFs
-- `assets/images/` — supplied Splunk dashboard image and page-one previews from the source reports/certificates
+## Credentials policy
+The NSE 1–3 credential PDFs are presented separately from the three course-completion records. The exact credential/course titles from the supplied documents are preserved. Badge images stay visible on touch devices; hover/focus adds a subtle reveal and is not required to access the certificate.
 
-## Local preview
+## Run locally
+Open `index.html` in a browser, or serve this folder with any static file server. No package installation or build command is required.
 
-Open `index.html` in a browser. For best testing, use a local static server (for example the VS Code Live Server extension). No build step is needed.
+## Deploy to Vercel
+The repository's current Vercel project uses `Ella-Sigue-Cybersecurity-Portfolio` as its Root Directory. Upload the contents of this folder into that directory in GitHub, preserving the `assets` folder. No build command is needed; Output Directory can be `.` if requested.
 
-## Deploy with GitHub + Vercel
-
-1. Extract the ZIP so `index.html`, `styles.css`, `script.js`, `assets/`, and `vercel.json` sit at the repository root.
-2. Create a new GitHub repository such as `ella-sigue-cybersecurity-portfolio`.
-3. Upload the extracted **files and folders** (not the ZIP itself) to the repository root and commit the changes. Alternatively, use Git from a terminal.
-4. In Vercel, select **Add New → Project**, import the repository, and deploy it.
-5. This is a static site. Leave the framework preset as **Other** (or no framework), with no build command and the project root as the output directory. Vercel will serve `index.html` from the repository root.
-6. Once deployed, each commit pushed to the connected production branch can trigger a new deployment.
-
-## Source accuracy notes
-
-- The three supplied Fortinet certificates are listed by their printed course titles: `Cybersecurity and Cloud Fundamentals 1.0`, `Introduction to Next Generation Firewall 1.0`, and `FortiGate 7.6 Operator Self-Paced`. They are described as course completion certificates, not upgraded to professional certifications.
-- The incident report is labeled as scenario-based practice. IR-002 covers a ransomware notice scenario; IR-003 covers unauthorized account-access scenario.
-- GoPhish was a localhost-only security-awareness simulation using a synthetic recipient and MailHog. Its report documents a dashboard/raw-event discrepancy for the email-open metric.
-- Cowrie output is described as a simulated SSH shell, not access to the underlying Kali host.
-- OWASP Juice Shop testing was performed against a local intentionally vulnerable training application. Status codes and preliminary severity labels are not presented as proof of a real-world compromise.
-- Splunk and Wireshark examples use training data / synthetic captures, not asserted real incidents.
-
-## Public portfolio caution
-
-The included PDFs are the original source documents provided for this portfolio. Before publishing publicly, review screenshots and workbooks for any personal network details or other information you do not intend to share. Do not add passwords, API keys, access tokens, or non-public organizational logs.
+## Reporting and scope
+Reports describe training exercises and lab evidence. They do not claim that simulated activity or historical training-dataset patterns represent compromise of a real organization. The resume itself is not included in this website.
