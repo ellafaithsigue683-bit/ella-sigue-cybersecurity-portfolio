@@ -926,3 +926,8 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 :root[data-theme="dark"] .resume-education-grid li span,
 :root[data-theme="dark"] .resume-additional-grid span{color:var(--text-secondary)!important}
 }
+
+/* Keep the space surrounding résumé cards on the same color as the page background. */
+@media screen{
+:root[data-theme="dark"] .resume-section{background:transparent!important}
+}
