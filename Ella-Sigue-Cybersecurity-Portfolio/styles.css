@@ -555,3 +555,30 @@ body { font-size: 16px; line-height: 1.7; }
   background-size: 100% 100%, auto 180%;
   background-position: center, 90% center;
 }
+
+
+/* Match the static poster's focal point to the left-shifted hero video. */
+.hero-video {
+  width: 145%;
+  left: -45%;
+  right: auto;
+  object-position: center;
+}
+.hero {
+  background-size: 100% 100%, auto 180%;
+  background-position: center, 110% center;
+}
+@media (max-width: 700px) {
+  .hero-video { display: none; }
+  .hero {
+    background-size: 100% 100%, auto 180%;
+    background-position: center, 110% center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none !important; }
+  .hero {
+    background-size: 100% 100%, auto 180%;
+    background-position: center, 110% center;
+  }
+}
