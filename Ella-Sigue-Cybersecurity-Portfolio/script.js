@@ -138,6 +138,23 @@
     dashboardDialog.addEventListener('close', () => dashboardLastTrigger?.focus());
   }
 
+  const triageOptions = [...document.querySelectorAll('.triage-option')];
+  const triageFeedback = document.querySelector('#triage-feedback');
+  triageOptions.forEach((option) => option.addEventListener('click', () => {
+    const isCorrect = option.dataset.triageCorrect === 'true';
+    triageOptions.forEach((item) => {
+      const selected = item === option;
+      item.setAttribute('aria-pressed', String(selected));
+      item.classList.toggle('selected', selected);
+    });
+    if (triageFeedback) {
+      triageFeedback.classList.toggle('is-correct', isCorrect);
+      triageFeedback.textContent = isCorrect
+        ? 'Good lead: the successful login follows repeated failures from one source. Validate account history, source ownership, and nearby activity; this excerpt alone does not prove compromise.'
+        : 'That conclusion goes beyond the evidence. The sequence warrants investigation, but a short log excerpt does not prove compromise.';
+    }
+  }));
+
   const printResumeButton = document.querySelector('#print-resume');
   printResumeButton?.addEventListener('click', () => window.print());
 

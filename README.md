@@ -16,9 +16,9 @@ Keep website pages and their `assets/` folder inside `Ella-Sigue-Cybersecurity-P
 - `certifications.html` — Fortinet NSE 1–3 credentials and separate course-completion records.
 - `education.html` — BFA in Cinema and Cyber Threat Monitoring Level 1 training.
 - `about.html` — Career motivation, technical skills, and relevant professional experience.
-- `contact.html` — Email, LinkedIn, and recruiter contact actions.
-- `resume.html` — Accessible web résumé with print styling and a browser print action.
-- `assets/reports/ella-faith-sigue-resume.pdf` — Original uploaded résumé PDF, linked as the primary download.
+- `contact.html` — Email, LinkedIn, and Resume actions.
+- `resume.html` — Accessible web Resume with print styling and a browser print action.
+- `assets/reports/ella-faith-sigue-resume.pdf` — Original uploaded resume PDF, linked as the primary download.
 
 The legacy `operations.html` and `security-labs.html` routes remain as small redirects into the relevant categories on `projects.html`, so previously shared links continue to work without maintaining duplicate project content.
 
@@ -34,8 +34,9 @@ The homepage uses an optimized static WebP image of the burgundy-and-gold cybers
 ## Accessibility and interactions
 
 - Improved type hierarchy and text contrast, including small metadata and secondary copy.
-- The global navigation links to the Resume page. Home and Contact provide the direct PDF download; the Projects and About pages keep their focus on portfolio content.
+- The global navigation links to the Resume page. Contact and Resume provide the direct PDF download; Home, Projects, and About keep their focus on portfolio content.
 - Keyboard-accessible zoom/lightbox for the Splunk dashboard.
+- A self-contained triage challenge uses synthetic authentication events and reinforces evidence-based analysis.
 - Visible keyboard focus and accessible project controls.
 - Static hero image, with no autoplay or motion requirements.
 
@@ -55,7 +56,7 @@ When editing the repository, update files inside that folder. Commit to `main`; 
 - Fortinet NSE 1, NSE 2, and NSE 3 were course requirements and were completed in October 2026.
 - Fortinet course-completion records are separate from the official NSE credential certificates.
 - Security exercises use supplied training datasets and contained labs. Simulated events are not presented as real incidents.
-- The original uploaded two-page résumé is available as a direct PDF download from Home and Contact, alongside a responsive, accessible Resume page with print styling.
+- The original uploaded two-page resume is available as a direct PDF download from Contact and the Resume page. The Home page keeps its focus on featured work.
 
 
 ## Design, accessibility, and sharing
@@ -64,4 +65,10 @@ When editing the repository, update files inside that folder. Commit to `main`; 
 - Project case labels follow display order, and expandable case-study controls announce the project and expanded state to assistive technology.
 - Open Graph and Twitter preview metadata use page-specific titles, descriptions, canonical URLs, and a shared branded image.
 - The homepage's static WebP background is preloaded at high priority; the featured Splunk dashboard image is loaded eagerly while supporting project images remain lazy-loaded.
-- Accumulated hero overrides are consolidated into one responsive hero block. Page-specific heading styles preserve the visual hierarchy after semantic heading updates.
+- Repeated base rules for the primary navigation, project filters, and hero footer are consolidated, with responsive overrides grouped by breakpoint.
+
+## Repository checks
+
+The GitHub Actions workflow runs a dependency-free Node.js validator on pushes to `main` and pull requests. It checks required pages, one H1 per page, matching primary navigation, local links and anchors, and referenced assets including PDFs.
+
+The interactive triage challenge on the Projects page uses only fictional events. It runs in the browser without an account, data upload, or external service.
