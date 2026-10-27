@@ -931,3 +931,16 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 @media screen{
 :root[data-theme="dark"] .resume-section{background:transparent!important}
 }
+
+
+/* Make education status callouts distinct from their dark-mode cards. */
+@media screen{
+:root[data-theme="dark"] .education-award{
+  background:var(--surface-raised)!important;
+  color:var(--text-primary)!important;
+  border:1px solid #5c4c54!important;
+  border-left:3px solid var(--gold)!important;
+}
+:root[data-theme="dark"] .education-award span{color:var(--text-secondary)!important}
+:root[data-theme="dark"] .education-award strong{color:var(--text-primary)!important}
+}
