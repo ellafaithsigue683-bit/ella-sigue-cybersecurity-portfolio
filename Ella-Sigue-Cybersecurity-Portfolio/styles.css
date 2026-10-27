@@ -543,7 +543,7 @@ body { font-size: 16px; line-height: 1.7; }
   width: min(100%, 690px);
   aspect-ratio: 3 / 2;
   overflow: hidden;
-  background: #29090f url("assets/images/hero-character-poses.webp") 0% 0% / 200% 200% no-repeat;
+  background: #29090f url("assets/images/hero-character-sprite.webp") 0% 0% / 200% 100% no-repeat;
   box-shadow: 0 18px 50px rgba(10, 2, 7, .18);
   isolation: isolate;
   transition: background-position .32s ease-out;
@@ -560,8 +560,6 @@ body { font-size: 16px; line-height: 1.7; }
 }
 .hero-character[data-pose="0"] { background-position: 0% 0%; }
 .hero-character[data-pose="1"] { background-position: 100% 0%; }
-.hero-character[data-pose="2"] { background-position: 0% 100%; }
-.hero-character[data-pose="3"] { background-position: 100% 100%; }
 .hero-character-status {
   display: flex;
   align-items: center;
