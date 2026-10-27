@@ -16,7 +16,8 @@ Keep website pages and their `assets/` folder inside `Ella-Sigue-Cybersecurity-P
 - `certifications.html` — Fortinet NSE 1–3 credentials and separate course-completion records.
 - `education.html` — BFA in Cinema and Cyber Threat Monitoring Level 1 training.
 - `about.html` — Career motivation, technical skills, and relevant professional experience.
-- `contact.html` — Email and LinkedIn.
+- `contact.html` — Email, LinkedIn, and recruiter contact actions.
+- `resume.html` — Accessible web résumé with a print / save-as-PDF action.
 
 The legacy `operations.html` and `security-labs.html` routes remain as small redirects into the relevant categories on `projects.html`, so previously shared links continue to work without maintaining duplicate project content.
 
@@ -31,7 +32,8 @@ The homepage uses an optimized static WebP image of the burgundy-and-gold cybers
 
 ## Accessibility and interactions
 
-- Improved type hierarchy and text contrast.
+- Improved type hierarchy and text contrast, including small metadata and secondary copy.
+- A résumé link is available in the global navigation and on key recruiter paths (Home, Projects, About, and Contact).
 - Keyboard-accessible zoom/lightbox for the Splunk dashboard.
 - Visible keyboard focus and accessible project controls.
 - Static hero image, with no autoplay or motion requirements.
@@ -52,7 +54,7 @@ When editing the repository, update files inside that folder. Commit to `main`; 
 - Fortinet NSE 1, NSE 2, and NSE 3 were course requirements and were completed in October 2026.
 - Fortinet course-completion records are separate from the official NSE credential certificates.
 - Security exercises use supplied training datasets and contained labs. Simulated events are not presented as real incidents.
-- The résumé PDF is not published in the website; professional experience is summarized for relevance to the work shown.
+- The résumé is available as a responsive web page with a browser print / save-as-PDF action. The page is based on the uploaded two-page résumé; its content is not re-presented as a downloadable copy of the original uploaded PDF.
 
 
 ## Design, accessibility, and sharing
