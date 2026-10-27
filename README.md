@@ -12,7 +12,7 @@ Keep website pages and their `assets/` folder inside `Ella-Sigue-Cybersecurity-P
 ## Website pages
 
 - `index.html` — Home and featured work.
-- `projects.html` — Searchable project gallery and expandable case studies for SOC/SIEM, network analysis, web security, and controlled security labs.
+- `projects.html` — Searchable project gallery and expandable case studies for SOC/SIEM, network analysis, web security, and controlled security labs. The featured Splunk dashboard spans the card above its case summary.
 - `certifications.html` — Fortinet NSE 1–3 credentials and separate course-completion records.
 - `education.html` — BFA in Cinema and Cyber Threat Monitoring Level 1 training.
 - `about.html` — Career motivation, technical skills, and relevant professional experience.
@@ -34,7 +34,7 @@ The homepage uses an optimized static WebP image of the burgundy-and-gold cybers
 ## Accessibility and interactions
 
 - Improved type hierarchy and text contrast, including small metadata and secondary copy.
-- The global navigation and Home, Projects, About, and Contact pages provide both a direct download of the original résumé PDF and a link to the accessible web résumé.
+- The global navigation links to the Resume page. Home and Contact provide the direct PDF download; the Projects and About pages keep their focus on portfolio content.
 - Keyboard-accessible zoom/lightbox for the Splunk dashboard.
 - Visible keyboard focus and accessible project controls.
 - Static hero image, with no autoplay or motion requirements.
@@ -55,7 +55,7 @@ When editing the repository, update files inside that folder. Commit to `main`; 
 - Fortinet NSE 1, NSE 2, and NSE 3 were course requirements and were completed in October 2026.
 - Fortinet course-completion records are separate from the official NSE credential certificates.
 - Security exercises use supplied training datasets and contained labs. Simulated events are not presented as real incidents.
-- The original uploaded two-page résumé is available as a direct PDF download, alongside a responsive, accessible web résumé with print styling.
+- The original uploaded two-page résumé is available as a direct PDF download from Home and Contact, alongside a responsive, accessible Resume page with print styling.
 
 
 ## Design, accessibility, and sharing
