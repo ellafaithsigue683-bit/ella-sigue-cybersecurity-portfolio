@@ -824,17 +824,17 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 .theme-toggle-icon{font-size:16px;line-height:1}
 @media(max-width:700px){.theme-toggle{width:100%;border-radius:8px}}
 @media screen{
-:root[data-theme="dark"]{color-scheme:dark;--paper:#211d21;--ink:#f3edf0;--muted:#c7bbc1;--line:#4a4046;--soft:#302a2f;--shadow:0 18px 45px rgba(0,0,0,.28)}
-:root[data-theme="dark"] body{background:#151316;color:var(--ink)}
+:root[data-theme="dark"]{color-scheme:dark;--paper:#211a1e;--ink:#f3edf0;--muted:#c7bbc1;--line:#4a4046;--soft:#352a30;--shadow:0 18px 45px rgba(0,0,0,.28)}
+:root[data-theme="dark"] body{background:var(--paper);color:var(--ink)}
 :root[data-theme="dark"] main,:root[data-theme="dark"] .page-shell,:root[data-theme="dark"] .content-wrap{background:transparent;color:var(--ink)}
 :root[data-theme="dark"] h1,:root[data-theme="dark"] h2,:root[data-theme="dark"] h3,:root[data-theme="dark"] h4,:root[data-theme="dark"] p,:root[data-theme="dark"] li,:root[data-theme="dark"] label{color:inherit}
-:root[data-theme="dark"] .project-card,:root[data-theme="dark"] .credential-card,:root[data-theme="dark"] .skill-panel,:root[data-theme="dark"] .transfer-card,:root[data-theme="dark"] .education-card,:root[data-theme="dark"] .resume-card,:root[data-theme="dark"] .resume-section,:root[data-theme="dark"] .resume-project-grid li,:root[data-theme="dark"] .resume-education-grid li,:root[data-theme="dark"] .home-skill-copy,:root[data-theme="dark"] .education-award,:root[data-theme="dark"] .lessons-learned,:root[data-theme="dark"] .credential-card>a,:root[data-theme="dark"] .resume-transfer-note{background:#262126!important;color:var(--ink)!important;border-color:var(--line)!important}
+:root[data-theme="dark"] .project-card,:root[data-theme="dark"] .credential-card,:root[data-theme="dark"] .skill-panel,:root[data-theme="dark"] .transfer-card,:root[data-theme="dark"] .education-card,:root[data-theme="dark"] .resume-card,:root[data-theme="dark"] .resume-section,:root[data-theme="dark"] .resume-project-grid li,:root[data-theme="dark"] .resume-education-grid li,:root[data-theme="dark"] .home-skill-copy,:root[data-theme="dark"] .education-award,:root[data-theme="dark"] .lessons-learned,:root[data-theme="dark"] .credential-card>a,:root[data-theme="dark"] .resume-transfer-note{background:var(--surface)!important;color:var(--ink)!important;border-color:var(--line)!important}
 :root[data-theme="dark"] .project-card p,:root[data-theme="dark"] .credential-card p,:root[data-theme="dark"] .skill-panel p,:root[data-theme="dark"] .transfer-card p,:root[data-theme="dark"] .resume-section p,:root[data-theme="dark"] .resume-section li,:root[data-theme="dark"] .home-skill-copy p,:root[data-theme="dark"] .education-award p,:root[data-theme="dark"] .lessons-learned p{color:#d4cbd0!important}
-:root[data-theme="dark"] input,:root[data-theme="dark"] select,:root[data-theme="dark"] textarea,:root[data-theme="dark"] .filter-chip,:root[data-theme="dark"] .search-input{background:#262126;color:var(--ink);border-color:#655861}
+:root[data-theme="dark"] input,:root[data-theme="dark"] select,:root[data-theme="dark"] textarea,:root[data-theme="dark"] .filter-chip,:root[data-theme="dark"] .search-input{background:var(--surface);color:var(--ink);border-color:#655861}
 :root[data-theme="dark"] a{color:#e0c88d}
 :root[data-theme="dark"] .primary-nav a,:root[data-theme="dark"] .site-header a,:root[data-theme="dark"] .site-footer a,:root[data-theme="dark"] .hero a,:root[data-theme="dark"] .button{color:inherit}
 :root[data-theme="dark"] .theme-toggle{color:var(--gold-light)}
-:root[data-theme="dark"] .theme-toggle:hover,:root[data-theme="dark"] .theme-toggle:focus-visible{background:var(--gold-light);color:#211d21}
+:root[data-theme="dark"] .theme-toggle:hover,:root[data-theme="dark"] .theme-toggle:focus-visible{background:var(--gold-light);color:#211a1e}
 }
 
 @media screen{
@@ -845,8 +845,8 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 /* Dark theme color contract: readable text on the surfaces used by every page. */
 @media screen{
 :root[data-theme="dark"]{
-  --surface:#262126;
-  --surface-raised:#302a2f;
+  --surface:#2b2429;
+  --surface-raised:#352a30;
   --text-primary:#f3edf0;
   --text-secondary:#d4cbd0;
   --text-accent:#e0c88d;
