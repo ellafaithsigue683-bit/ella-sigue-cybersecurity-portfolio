@@ -539,3 +539,19 @@ body { font-size: 16px; line-height: 1.7; }
 @media (max-width: 390px) {
   .hero.section-shell { padding-left: 24px; }
 }
+
+
+/* Shift the animated network artwork toward the middle-left without moving the hero copy. */
+.hero-video {
+  width: 128%;
+  left: -28%;
+  right: auto;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  object-position: center;
+}
+.hero {
+  background-size: 100% 100%, auto 180%;
+  background-position: center, 90% center;
+}
