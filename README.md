@@ -20,13 +20,16 @@ Keep website pages and their `assets/` folder inside `Ella-Sigue-Cybersecurity-P
 
 The legacy `operations.html` and `security-labs.html` routes remain as small redirects into the relevant categories on `projects.html`, so previously shared links continue to work without maintaining duplicate project content.
 
-## Scroll-responsive character hero
+## Full HD cybersecurity hero background
 
-The homepage hero uses a lightweight two-pose WebP sprite based on a semi-realistic 3D-style female cybersecurity character. Scrolling down through the hero changes the character from a neutral pose to a gesture pose; scrolling back up returns to the neutral pose.
+The homepage uses a silent, six-second Full HD cinematic video loop with a matching static poster. Burgundy-and-gold command-center artwork sits behind the hero copy with a dark left-side gradient for readability.
 
-- Sprite: `Ella-Sigue-Cybersecurity-Portfolio/assets/images/hero-character-sprite.webp`
-- The hero does not autoplay a background video.
-- The scroll-driven pose change is disabled for small screens and users who prefer reduced motion.
+- Video: `Ella-Sigue-Cybersecurity-Portfolio/assets/videos/cybersecurity-hero-loop.mp4`
+- Poster fallback: `Ella-Sigue-Cybersecurity-Portfolio/assets/images/cybersecurity-hero-poster.jpg`
+- WebP poster fallback: `Ella-Sigue-Cybersecurity-Portfolio/assets/images/cybersecurity-hero-poster.webp`
+- Full-resolution illustration: `Ella-Sigue-Cybersecurity-Portfolio/assets/images/cybersecurity-hero-illustration-1920x1080.png`
+
+The video is muted, loops, and has a pause/resume control on supported desktop viewports. Small screens and visitors who prefer reduced motion receive a static poster.
 
 ## Accessibility and interactions
 

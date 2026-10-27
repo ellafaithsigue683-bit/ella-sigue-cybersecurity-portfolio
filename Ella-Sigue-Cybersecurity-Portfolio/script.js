@@ -1,39 +1,56 @@
 (() => {
-
-  // Scroll-linked character poses: the character advances as visitors scroll down and reverses when they scroll up.
-  const heroStage = document.querySelector('#hero-scroll-stage');
-  const heroSection = heroStage?.querySelector('.hero');
-  const heroCharacter = document.querySelector('#hero-character');
+  // Decorative Full HD hero video: muted, looping, with a clear pause/resume control.
+  const heroVideo = document.querySelector('.hero-video');
+  const heroMotionToggle = document.querySelector('#hero-motion-toggle');
   const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const desktopHeroQuery = window.matchMedia('(min-width: 701px)');
+  const compactViewportQuery = window.matchMedia('(max-width: 700px)');
 
-  if (heroStage && heroSection && heroCharacter && !reducedMotionQuery.matches && desktopHeroQuery.matches) {
-    let stageStart = window.scrollY + heroStage.getBoundingClientRect().top;
-
-    const updateHeroPose = () => {
-      if (reducedMotionQuery.matches || !desktopHeroQuery.matches) {
-        heroCharacter.dataset.pose = '0';
-        return;
-      }
-      const range = Math.max(1, heroStage.offsetHeight - heroSection.offsetHeight);
-      const distance = Math.max(0, Math.min(range, window.scrollY - stageStart));
-      const progress = distance / range;
-      const pose = progress >= 0.5 ? 1 : 0;
-      heroCharacter.dataset.pose = String(pose);
+  if (heroVideo && heroMotionToggle) {
+    const setMotionLabel = () => {
+      const playing = !heroVideo.paused && !heroVideo.ended;
+      heroMotionToggle.textContent = playing ? 'Pause background motion' : 'Play background motion';
+      heroMotionToggle.setAttribute('aria-pressed', String(playing));
     };
 
-    window.addEventListener('scroll', updateHeroPose, { passive: true });
-    window.addEventListener('resize', () => {
-      stageStart = window.scrollY + heroStage.getBoundingClientRect().top;
-      updateHeroPose();
+    const syncHeroMotion = (attemptPlayback = false) => {
+      const staticMode = reducedMotionQuery.matches || compactViewportQuery.matches;
+      if (staticMode) {
+        heroVideo.pause();
+        heroMotionToggle.hidden = true;
+        return;
+      }
+      heroMotionToggle.hidden = false;
+      if (attemptPlayback && heroVideo.paused) {
+        const playRequest = heroVideo.play();
+        if (playRequest && typeof playRequest.catch === 'function') {
+          playRequest.catch(() => {
+            heroMotionToggle.textContent = 'Play background motion';
+            heroMotionToggle.setAttribute('aria-pressed', 'false');
+          });
+        }
+      }
+      setMotionLabel();
+    };
+
+    heroMotionToggle.addEventListener('click', async () => {
+      if (heroVideo.paused) {
+        try {
+          await heroVideo.play();
+        } catch {
+          heroMotionToggle.textContent = 'Background motion unavailable';
+          return;
+        }
+      } else {
+        heroVideo.pause();
+      }
+      setMotionLabel();
     });
 
-    reducedMotionQuery.addEventListener?.('change', updateHeroPose);
-    desktopHeroQuery.addEventListener?.('change', () => {
-      stageStart = window.scrollY + heroStage.getBoundingClientRect().top;
-      updateHeroPose();
-    });
-    updateHeroPose();
+    heroVideo.addEventListener('play', setMotionLabel);
+    heroVideo.addEventListener('pause', setMotionLabel);
+    reducedMotionQuery.addEventListener?.('change', () => syncHeroMotion(true));
+    compactViewportQuery.addEventListener?.('change', () => syncHeroMotion(true));
+    syncHeroMotion(true);
   }
 
   const searchInput = document.querySelector('#project-search');
