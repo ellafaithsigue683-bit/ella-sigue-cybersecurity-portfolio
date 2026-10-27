@@ -886,3 +886,36 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 @media screen{
 :root[data-theme="dark"] .search-box svg{stroke:var(--text-accent)!important}
 }
+
+/* Final dark-theme contrast corrections for Education, About, Resume and navigation. */
+@media screen{
+:root[data-theme="dark"] .education-section .section-heading .section-intro,
+:root[data-theme="dark"] .education-list,
+:root[data-theme="dark"] .education-list li,
+:root[data-theme="dark"] .education-footnote p,
+:root[data-theme="dark"] .education-award span,
+:root[data-theme="dark"] .education-provider,
+:root[data-theme="dark"] .education-copy{color:var(--text-secondary)!important}
+:root[data-theme="dark"] .skill-panel-foot,
+:root[data-theme="dark"] .skill-panel-heading span:last-child{color:var(--text-secondary)!important}
+:root[data-theme="dark"] .resume-block-heading h2 span,
+:root[data-theme="dark"] .resume-entry-heading span,
+:root[data-theme="dark"] .resume-entry-heading .resume-date,
+:root[data-theme="dark"] .resume-print-note,
+:root[data-theme="dark"] .resume-final-block>p{color:var(--text-secondary)!important}
+:root[data-theme="dark"] .resume-bullet-list li::marker,
+:root[data-theme="dark"] .resume-entry li::marker{color:var(--text-accent)!important}
+:root[data-theme="dark"] .resume-entry .resume-project-context{color:var(--text-secondary)!important}
+:root[data-theme="dark"] .nav-contact{
+  min-height:44px;
+  height:44px;
+  padding:9px 13px!important;
+  line-height:1;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+}
+
+/* Keep the Contact action aligned with the 44px theme control in either mode. */
+.nav-contact{min-height:44px;height:44px;padding:9px 13px;line-height:1;box-sizing:border-box;align-items:center;justify-content:center}
