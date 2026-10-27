@@ -53,3 +53,12 @@ When editing the repository, update files inside that folder. Commit to `main`; 
 - Fortinet course-completion records are separate from the official NSE credential certificates.
 - Security exercises use supplied training datasets and contained labs. Simulated events are not presented as real incidents.
 - The résumé PDF is not published in the website; professional experience is summarized for relevance to the work shown.
+
+
+## Design, accessibility, and sharing
+
+- Each page has one semantic H1 followed by a consistent heading hierarchy.
+- Project case labels follow display order, and expandable case-study controls announce the project and expanded state to assistive technology.
+- Open Graph and Twitter preview metadata use page-specific titles, descriptions, canonical URLs, and a shared branded image.
+- The homepage's static WebP background is preloaded at high priority; the featured Splunk dashboard image is loaded eagerly while supporting project images remain lazy-loaded.
+- Accumulated hero overrides are consolidated into one responsive hero block. Page-specific heading styles preserve the visual hierarchy after semantic heading updates.

@@ -49,6 +49,8 @@
     const willOpen = detail.hidden;
     detail.hidden = !willOpen;
     button.setAttribute('aria-expanded', String(willOpen));
+    const caseTitle = button.dataset.caseTitle || 'case study';
+    button.setAttribute('aria-label', `${willOpen ? 'Close' : 'Read'} case study: ${caseTitle}`);
     const label = button.querySelector('.toggle-symbol');
     if (label) label.textContent = willOpen ? '−' : '＋';
     const textNode = [...button.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
