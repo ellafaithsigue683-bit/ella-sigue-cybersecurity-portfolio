@@ -498,74 +498,138 @@ body { font-size: 16px; line-height: 1.7; }
 
 
 
-/* Homepage hero refinements: give the headline room, move the artwork left, and avoid enlarging the video. */
-.hero.section-shell {
-  padding-left: clamp(80px, 12vw, 220px);
-}
 
-/* Keep the decorative video at its native cover size; pan its focal point instead of magnifying it. */
-.hero-video {
+
+/* Scroll-responsive character hero: compact 2x2 WebP sprite, no autoplaying video. */
+.hero-scroll-stage {
+  position: relative;
+  height: calc(100svh + 360px);
+}
+.hero-scroll-stage > .hero.section-shell {
+  position: sticky;
+  top: 68px;
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  object-fit: cover;
-  object-position: 68% center;
+  max-width: none;
+  margin: 0;
+  height: calc(100svh - 68px);
+  min-height: 600px;
+  padding: clamp(52px, 5vw, 78px) clamp(32px, 5vw, 92px) 76px clamp(80px, 12vw, 220px);
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+  align-items: center;
+  background-color: var(--maroon-dark);
+  background-image:
+    radial-gradient(ellipse at 76% 36%, rgba(133,43,61,.34), transparent 42%),
+    radial-gradient(ellipse at 80% 84%, rgba(197,161,90,.11), transparent 34%),
+    linear-gradient(115deg, #260d16 0%, #421224 60%, #35101d 100%);
 }
-
-/* Keep the fallback poster's focal point aligned with the video. */
-.hero {
-  background-size: 100% 100%, cover;
-  background-position: center, 68% center;
+.hero-scroll-stage > .hero.section-shell:before {
+  background:
+    linear-gradient(90deg, rgba(38,13,22,.68) 0%, rgba(52,15,30,.16) 55%, rgba(38,13,22,.03) 100%),
+    linear-gradient(0deg, rgba(38,13,22,.28), transparent 55%);
 }
-
-/* The shield and orbit graphics are a separate foreground layer; shift them toward mid-left. */
-.hero-art {
-  left: -42px;
+.hero-video, .hero-motion-toggle { display: none !important; }
+.hero-character-art {
+  left: -38px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transform: none;
 }
-
-@media (max-width: 950px) {
-  .hero.section-shell {
-    padding-left: 9%;
+.hero-character {
+  position: relative;
+  width: min(100%, 690px);
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: #29090f url("assets/images/hero-character-poses.webp") 0% 0% / 200% 200% no-repeat;
+  box-shadow: 0 18px 50px rgba(10, 2, 7, .18);
+  isolation: isolate;
+  transition: background-position .32s ease-out;
+}
+.hero-character::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, #260d16 0%, transparent 17%, transparent 83%, #35101d 100%),
+    linear-gradient(0deg, #260d16 0%, transparent 18%, transparent 86%, rgba(38,13,22,.78) 100%);
+  opacity: .40;
+}
+.hero-character[data-pose="0"] { background-position: 0% 0%; }
+.hero-character[data-pose="1"] { background-position: 100% 0%; }
+.hero-character[data-pose="2"] { background-position: 0% 100%; }
+.hero-character[data-pose="3"] { background-position: 100% 100%; }
+.hero-character-status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 11px;
+  align-self: center;
+  width: min(100%, 690px);
+  padding-top: 3px;
+  color: #e4d2d8;
+  font: 10px/1.5 var(--mono);
+  letter-spacing: .06em;
+}
+.hero-character-status-dot {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--gold-light);
+  box-shadow: 0 0 0 4px rgba(197,161,90,.12);
+}
+.hero-character-status-label { color: var(--gold-light); }
+.hero-character-status strong {
+  margin-left: auto;
+  font-weight: 500;
+  letter-spacing: .01em;
+  color: #f1e7ea;
+}
+@media (max-width: 1100px) {
+  .hero-scroll-stage > .hero.section-shell {
+    padding-left: 8.5%;
+    padding-right: 4%;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .92fr);
   }
-  .hero-art {
-    left: -24px;
-  }
+  .hero-character-art { left: -24px; }
+  .hero-character-status { font-size: 9px; }
 }
-
 @media (max-width: 700px) {
-  .hero.section-shell {
-    padding-left: 32px;
+  .hero-scroll-stage { height: auto; }
+  .hero-scroll-stage > .hero.section-shell {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    padding: 50px 24px 65px;
+    grid-template-columns: minmax(0, 1fr);
   }
-  .hero-video {
-    display: none;
-  }
-  .hero {
-    background-size: 100% 100%, cover;
-    background-position: center, 68% center;
-  }
-  .hero-art {
+  .hero-character-art {
     left: 0;
+    margin-top: 14px;
+    min-height: 0;
   }
+  .hero-character { width: min(100%, 560px); }
+  .hero-character-status { width: min(100%, 560px); font-size: 9px; }
+  .hero-character-status strong { margin-left: 0; width: 100%; }
+  .hero-bottom-rule { left: 24px; right: 24px; }
 }
-
 @media (max-width: 390px) {
-  .hero.section-shell {
-    padding-left: 24px;
-  }
-  .hero-art {
-    left: 0;
-  }
+  .hero-scroll-stage > .hero.section-shell { padding-inline: 18px; }
+  .hero-bottom-rule { left: 18px; right: 18px; }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  .hero-video {
-    display: none !important;
+  .hero-scroll-stage { height: auto; }
+  .hero-scroll-stage > .hero.section-shell {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: min(780px, calc(100svh - 68px));
   }
-  .hero {
-    background-size: 100% 100%, cover;
-    background-position: center, 68% center;
-  }
+  .hero-character { transition: none; }
 }
