@@ -1,60 +1,39 @@
 (() => {
 
-  // Accessible control for the decorative hero background video.
-  const heroVideo = document.querySelector('.hero-video');
-  const heroMotionToggle = document.querySelector('#hero-motion-toggle');
+  // Scroll-linked character poses: the character advances as visitors scroll down and reverses when they scroll up.
+  const heroStage = document.querySelector('#hero-scroll-stage');
+  const heroSection = heroStage?.querySelector('.hero');
+  const heroCharacter = document.querySelector('#hero-character');
   const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const compactViewportQuery = window.matchMedia('(max-width: 700px)');
+  const desktopHeroQuery = window.matchMedia('(min-width: 701px)');
 
-  if (heroVideo && heroMotionToggle) {
-    const syncHeroMotion = (allowPlayback = true) => {
-      const useStaticBackground = reducedMotionQuery.matches || compactViewportQuery.matches;
-      heroMotionToggle.hidden = useStaticBackground;
+  if (heroStage && heroSection && heroCharacter && !reducedMotionQuery.matches && desktopHeroQuery.matches) {
+    let stageStart = window.scrollY + heroStage.getBoundingClientRect().top;
 
-      if (useStaticBackground) {
-        heroVideo.pause();
-        heroVideo.removeAttribute('autoplay');
-      } else {
-        heroVideo.setAttribute('autoplay', '');
-        if (allowPlayback && heroVideo.paused) {
-          const playRequest = heroVideo.play();
-          if (playRequest && typeof playRequest.catch === 'function') {
-            playRequest.catch(() => {
-              heroMotionToggle.textContent = 'Background motion unavailable';
-              heroMotionToggle.disabled = true;
-            });
-          }
-        }
+    const updateHeroPose = () => {
+      if (reducedMotionQuery.matches || !desktopHeroQuery.matches) {
+        heroCharacter.dataset.pose = '0';
+        return;
       }
-
-      if (!heroMotionToggle.disabled) {
-        heroMotionToggle.textContent = heroVideo.paused ? 'Play background motion' : 'Pause background motion';
-      }
-      heroMotionToggle.setAttribute('aria-pressed', String(heroVideo.paused));
+      const range = Math.max(1, heroStage.offsetHeight - heroSection.offsetHeight);
+      const distance = Math.max(0, Math.min(range, window.scrollY - stageStart));
+      const progress = distance / range;
+      const pose = Math.min(3, Math.floor(progress * 4));
+      heroCharacter.dataset.pose = String(pose);
     };
 
-    heroMotionToggle.addEventListener('click', async () => {
-      if (heroVideo.paused) {
-        try {
-          heroVideo.setAttribute('autoplay', '');
-          await heroVideo.play();
-          heroMotionToggle.disabled = false;
-        } catch {
-          heroMotionToggle.textContent = 'Background motion unavailable';
-          heroMotionToggle.disabled = true;
-          return;
-        }
-      } else {
-        heroVideo.pause();
-      }
-      syncHeroMotion(false);
+    window.addEventListener('scroll', updateHeroPose, { passive: true });
+    window.addEventListener('resize', () => {
+      stageStart = window.scrollY + heroStage.getBoundingClientRect().top;
+      updateHeroPose();
     });
 
-    heroVideo.addEventListener('playing', () => syncHeroMotion(false));
-    heroVideo.addEventListener('pause', () => syncHeroMotion(false));
-    reducedMotionQuery.addEventListener?.('change', () => syncHeroMotion(true));
-    compactViewportQuery.addEventListener?.('change', () => syncHeroMotion(true));
-    syncHeroMotion(true);
+    reducedMotionQuery.addEventListener?.('change', updateHeroPose);
+    desktopHeroQuery.addEventListener?.('change', () => {
+      stageStart = window.scrollY + heroStage.getBoundingClientRect().top;
+      updateHeroPose();
+    });
+    updateHeroPose();
   }
 
   const searchInput = document.querySelector('#project-search');
