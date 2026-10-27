@@ -496,89 +496,76 @@ body { font-size: 16px; line-height: 1.7; }
 }
 
 
-/* Home hero alignment: reduce the oversized left inset while preserving responsive gutters. */
+
+
+/* Homepage hero refinements: give the headline room, move the artwork left, and avoid enlarging the video. */
 .hero.section-shell {
-  padding-left: clamp(28px, 5.5vw, 96px);
-}
-@media (max-width: 950px) {
-  .hero.section-shell { padding-left: 5%; }
-}
-@media (max-width: 700px) {
-  .hero.section-shell { padding-left: 24px; }
-}
-@media (max-width: 390px) {
-  .hero.section-shell { padding-left: 18px; }
+  padding-left: clamp(80px, 12vw, 220px);
 }
 
-
-/* Corrected hero alignment: add more left breathing room for the headline. */
-.hero.section-shell {
-  padding-left: clamp(48px, 8.5vw, 154px);
-}
-@media (max-width: 950px) {
-  .hero.section-shell { padding-left: 6.5%; }
-}
-@media (max-width: 700px) {
-  .hero.section-shell { padding-left: 28px; }
-}
-@media (max-width: 390px) {
-  .hero.section-shell { padding-left: 22px; }
-}
-
-
-/* Hero spacing refinement: move the text block farther right with a generous left gutter. */
-.hero.section-shell {
-  padding-left: clamp(64px, 11vw, 190px);
-}
-@media (max-width: 950px) {
-  .hero.section-shell { padding-left: 8.5%; }
-}
-@media (max-width: 700px) {
-  .hero.section-shell { padding-left: 32px; }
-}
-@media (max-width: 390px) {
-  .hero.section-shell { padding-left: 24px; }
-}
-
-
-/* Shift the animated network artwork toward the middle-left without moving the hero copy. */
+/* Keep the decorative video at its native cover size; pan its focal point instead of magnifying it. */
 .hero-video {
-  width: 128%;
-  left: -28%;
-  right: auto;
-  top: 0;
-  bottom: 0;
+  width: 100%;
   height: 100%;
-  object-position: center;
-}
-.hero {
-  background-size: 100% 100%, auto 180%;
-  background-position: center, 90% center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  object-position: 68% center;
 }
 
-
-/* Match the static poster's focal point to the left-shifted hero video. */
-.hero-video {
-  width: 145%;
-  left: -45%;
-  right: auto;
-  object-position: center;
-}
+/* Keep the fallback poster's focal point aligned with the video. */
 .hero {
-  background-size: 100% 100%, auto 180%;
-  background-position: center, 110% center;
+  background-size: 100% 100%, cover;
+  background-position: center, 68% center;
 }
-@media (max-width: 700px) {
-  .hero-video { display: none; }
-  .hero {
-    background-size: 100% 100%, auto 180%;
-    background-position: center, 110% center;
+
+/* The shield and orbit graphics are a separate foreground layer; shift them toward mid-left. */
+.hero-art {
+  left: -42px;
+}
+
+@media (max-width: 950px) {
+  .hero.section-shell {
+    padding-left: 9%;
+  }
+  .hero-art {
+    left: -24px;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .hero-video { display: none !important; }
+
+@media (max-width: 700px) {
+  .hero.section-shell {
+    padding-left: 32px;
+  }
+  .hero-video {
+    display: none;
+  }
   .hero {
-    background-size: 100% 100%, auto 180%;
-    background-position: center, 110% center;
+    background-size: 100% 100%, cover;
+    background-position: center, 68% center;
+  }
+  .hero-art {
+    left: 0;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero.section-shell {
+    padding-left: 24px;
+  }
+  .hero-art {
+    left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none !important;
+  }
+  .hero {
+    background-size: 100% 100%, cover;
+    background-position: center, 68% center;
   }
 }
