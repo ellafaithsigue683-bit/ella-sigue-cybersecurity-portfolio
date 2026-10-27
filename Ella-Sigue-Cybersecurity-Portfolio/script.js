@@ -1,4 +1,62 @@
 (() => {
+
+  // Accessible control for the decorative hero background video.
+  const heroVideo = document.querySelector('.hero-video');
+  const heroMotionToggle = document.querySelector('#hero-motion-toggle');
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const compactViewportQuery = window.matchMedia('(max-width: 700px)');
+
+  if (heroVideo && heroMotionToggle) {
+    const syncHeroMotion = (allowPlayback = true) => {
+      const useStaticBackground = reducedMotionQuery.matches || compactViewportQuery.matches;
+      heroMotionToggle.hidden = useStaticBackground;
+
+      if (useStaticBackground) {
+        heroVideo.pause();
+        heroVideo.removeAttribute('autoplay');
+      } else {
+        heroVideo.setAttribute('autoplay', '');
+        if (allowPlayback && heroVideo.paused) {
+          const playRequest = heroVideo.play();
+          if (playRequest && typeof playRequest.catch === 'function') {
+            playRequest.catch(() => {
+              heroMotionToggle.textContent = 'Background motion unavailable';
+              heroMotionToggle.disabled = true;
+            });
+          }
+        }
+      }
+
+      if (!heroMotionToggle.disabled) {
+        heroMotionToggle.textContent = heroVideo.paused ? 'Play background motion' : 'Pause background motion';
+      }
+      heroMotionToggle.setAttribute('aria-pressed', String(heroVideo.paused));
+    };
+
+    heroMotionToggle.addEventListener('click', async () => {
+      if (heroVideo.paused) {
+        try {
+          heroVideo.setAttribute('autoplay', '');
+          await heroVideo.play();
+          heroMotionToggle.disabled = false;
+        } catch {
+          heroMotionToggle.textContent = 'Background motion unavailable';
+          heroMotionToggle.disabled = true;
+          return;
+        }
+      } else {
+        heroVideo.pause();
+      }
+      syncHeroMotion(false);
+    });
+
+    heroVideo.addEventListener('playing', () => syncHeroMotion(false));
+    heroVideo.addEventListener('pause', () => syncHeroMotion(false));
+    reducedMotionQuery.addEventListener?.('change', () => syncHeroMotion(true));
+    compactViewportQuery.addEventListener?.('change', () => syncHeroMotion(true));
+    syncHeroMotion(true);
+  }
+
   const searchInput = document.querySelector('#project-search');
   const chips = [...document.querySelectorAll('.filter-chip')];
   const cards = [...document.querySelectorAll('.project-card[data-category]')];
