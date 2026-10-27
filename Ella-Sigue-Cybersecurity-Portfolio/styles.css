@@ -623,7 +623,6 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 .resume-skill-grid h3 { margin: 0 0 7px; color: var(--maroon); font-size: 14px; }
 .resume-skill-grid p, .resume-final-block > p { margin: 0; color: #51464a; font-size: 14px; line-height: 1.7; }
 .resume-final-block > p + p { margin-top: 6px; }
-.resume-print-note { margin-top: 28px; color: #66585c; font-size: 13px; }
 .resume-hero-link { white-space: nowrap; }
 .resume-page-heading .button { min-height: 44px; }
 .resume-page-heading .text-link { font-size: 14px; }
@@ -734,7 +733,7 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 @media print {
   @page { size: A4; margin: 13mm 14mm; }
   html, body { width: auto !important; min-width: 0 !important; background: #fff !important; color: #1f1b1d !important; font-size: 10pt !important; line-height: 1.35 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .site-header, .site-footer, .skip-link, .resume-actions, .resume-print-note { display: none !important; }
+  .site-header, .site-footer, .skip-link, .resume-actions { display: none !important; }
   .resume-section { width: 100% !important; max-width: none !important; margin: 0 !important; padding: 0 !important; }
   .resume-page-heading { display: block !important; padding-bottom: 8pt !important; margin-bottom: 9pt !important; }
   .resume-page-heading h1 { font-size: 23pt !important; }
@@ -861,7 +860,7 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 :root[data-theme="dark"] .resume-summary-panel p,:root[data-theme="dark"] .resume-section p,:root[data-theme="dark"] .resume-section li{color:var(--text-secondary)!important}
 :root[data-theme="dark"] .resume-project-grid li,:root[data-theme="dark"] .resume-education-grid li,:root[data-theme="dark"] .resume-entry,:root[data-theme="dark"] .resume-skill-grid>div,:root[data-theme="dark"] .resume-additional-grid p{background:var(--surface)!important;color:var(--text-secondary)!important;border-color:var(--line)!important}
 :root[data-theme="dark"] .resume-project-grid li strong,:root[data-theme="dark"] .resume-education-grid li strong,:root[data-theme="dark"] .resume-entry-heading h3,:root[data-theme="dark"] .resume-skill-grid h3{color:var(--text-accent)!important}
-:root[data-theme="dark"] .resume-project-context,:root[data-theme="dark"] .resume-entry li,:root[data-theme="dark"] .resume-entry-meta,:root[data-theme="dark"] .resume-toc>span,:root[data-theme="dark"] .resume-print-note,:root[data-theme="dark"] .resume-contact-line{color:var(--text-secondary)!important}
+:root[data-theme="dark"] .resume-project-context,:root[data-theme="dark"] .resume-entry li,:root[data-theme="dark"] .resume-entry-meta,:root[data-theme="dark"] .resume-toc>span,:root[data-theme="dark"] .resume-contact-line{color:var(--text-secondary)!important}
 :root[data-theme="dark"] .resume-transfer-note,:root[data-theme="dark"] .learning-note,:root[data-theme="dark"] .caution-note{background:var(--surface-raised)!important;color:var(--text-secondary)!important;border-color:var(--gold)!important}
 :root[data-theme="dark"] .resume-transfer-note p,:root[data-theme="dark"] .learning-note p,:root[data-theme="dark"] .caution-note p{color:var(--text-secondary)!important}
 :root[data-theme="dark"] .skill-panel-heading span:first-child{color:var(--text-accent)!important}
@@ -901,7 +900,7 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 :root[data-theme="dark"] .resume-block-heading h2 span,
 :root[data-theme="dark"] .resume-entry-heading span,
 :root[data-theme="dark"] .resume-entry-heading .resume-date,
-:root[data-theme="dark"] .resume-print-note,
+
 :root[data-theme="dark"] .resume-final-block>p{color:var(--text-secondary)!important}
 :root[data-theme="dark"] .resume-bullet-list li::marker,
 :root[data-theme="dark"] .resume-entry li::marker{color:var(--text-accent)!important}
