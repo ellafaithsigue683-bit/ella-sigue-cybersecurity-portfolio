@@ -1028,3 +1028,139 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
     line-height: 1.5;
   }
 }
+
+
+/* About page: replace repeated employment details with concise working principles. */
+.about-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px 22px;
+  margin-top: 14px;
+}
+.about-actions .button { margin-top: 0; }
+.about-actions .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  color: var(--maroon);
+  font-size: 14px;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+.about-actions .text-link:hover,
+.about-resume-link a:hover { color: #8c334f; }
+
+.what-i-bring {
+  margin-top: 62px;
+  padding-top: 34px;
+  border-top: 1px solid var(--line);
+}
+.what-i-bring-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+  margin-bottom: 22px;
+}
+.what-i-bring-heading > div { flex: 1 1 56%; min-width: 0; }
+.what-i-bring-heading .eyebrow { margin: 0 0 8px; }
+.what-i-bring-heading h2 {
+  max-width: 610px;
+  margin: 0;
+  color: var(--maroon-dark);
+  font-size: clamp(25px, 3vw, 34px);
+  line-height: 1.2;
+  letter-spacing: -.035em;
+}
+.what-i-bring-heading > p {
+  flex: 0 1 410px;
+  margin: 0;
+  color: #55494d;
+  font-size: 15px;
+  line-height: 1.75;
+}
+.what-i-bring-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+.about-value-card {
+  min-width: 0;
+  padding: 22px 22px 24px;
+  border: 1px solid var(--line);
+  background: #fffdfa;
+}
+.about-value-card > span {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--maroon);
+  font: 600 11px/1.5 var(--mono);
+  letter-spacing: .08em;
+}
+.about-value-card h3 {
+  margin: 0 0 9px;
+  color: var(--maroon-dark);
+  font-size: 19px;
+  line-height: 1.35;
+}
+.about-value-card p {
+  margin: 0;
+  color: #51464a;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.about-resume-link {
+  margin: 22px 0 0;
+  color: #55494d;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.about-resume-link a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  min-height: 44px;
+  color: var(--maroon);
+  font-weight: 700;
+  text-underline-offset: 4px;
+}
+.about-actions :focus-visible,
+.about-resume-link a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .what-i-bring-heading { display: block; }
+  .what-i-bring-heading > p { max-width: 680px; margin-top: 14px; }
+  .what-i-bring-grid { grid-template-columns: 1fr; gap: 12px; }
+  .about-value-card { padding: 20px 22px; }
+}
+@media (max-width: 700px) {
+  .about-actions { gap: 10px 18px; }
+  .what-i-bring { margin-top: 46px; padding-top: 26px; }
+  .what-i-bring-heading h2 { font-size: 27px; }
+  .what-i-bring-heading > p { font-size: 15px; }
+  .about-value-card h3 { font-size: 18px; }
+  .about-value-card p { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-actions .text-link,
+  .about-resume-link a { transition: none !important; }
+}
+@media screen {
+  :root[data-theme="dark"] .what-i-bring-heading h2,
+  :root[data-theme="dark"] .about-value-card h3 { color: var(--text-primary); }
+  :root[data-theme="dark"] .what-i-bring-heading > p,
+  :root[data-theme="dark"] .about-value-card p,
+  :root[data-theme="dark"] .about-resume-link { color: var(--text-secondary); }
+  :root[data-theme="dark"] .about-value-card {
+    background: var(--surface) !important;
+    border-color: var(--line) !important;
+  }
+  :root[data-theme="dark"] .about-value-card > span,
+  :root[data-theme="dark"] .about-actions .text-link,
+  :root[data-theme="dark"] .about-resume-link a { color: var(--text-accent); }
+}
