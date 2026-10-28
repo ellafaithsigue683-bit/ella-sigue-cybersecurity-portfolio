@@ -978,3 +978,53 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
     margin: 0;
   }
 }
+
+
+/* Mobile portfolio metrics: give the long Splunk label the full row, not half a column. */
+@media (max-width: 700px) {
+  .proof-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .proof-item {
+    min-width: 0;
+  }
+
+  .proof-item:nth-child(3) {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-top: 1px solid rgba(250, 247, 242, .16);
+    border-bottom: 1px solid rgba(250, 247, 242, .16);
+  }
+
+  .proof-item:nth-child(3) strong {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: clamp(25px, 6vw, 30px);
+  }
+
+  .proof-item:nth-child(3) span {
+    min-width: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #e8dce0;
+  }
+}
+
+@media (max-width: 390px) {
+  .proof-item:nth-child(3) {
+    gap: 10px;
+  }
+
+  .proof-item:nth-child(3) strong {
+    font-size: 24px;
+  }
+
+  .proof-item:nth-child(3) span {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
