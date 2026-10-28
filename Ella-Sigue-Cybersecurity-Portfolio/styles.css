@@ -1221,3 +1221,39 @@ summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
     letter-spacing: -.045em;
   }
 }
+
+
+/* Course title hierarchy: stronger heading emphasis while retaining a single line on mobile. */
+@media (max-width: 700px) {
+  .home-path-card .eyebrow {
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: .1em;
+    margin-bottom: 1px;
+  }
+  .home-path-card h3 {
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: normal;
+    font-size: clamp(15px, 4.8vw, 22px);
+    line-height: 1.3;
+    font-weight: 700;
+    letter-spacing: -.04em;
+    margin: 0 0 10px;
+  }
+  .home-path-card p:not(.eyebrow) {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+@media (max-width: 360px) {
+  .home-path-card h3 {
+    font-size: 15px;
+    letter-spacing: -.045em;
+  }
+  .home-path-card p:not(.eyebrow) {
+    font-size: 14px;
+  }
+}
